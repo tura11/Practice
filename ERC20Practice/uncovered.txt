@@ -1,0 +1,562 @@
+Compiling 24 files with Solc 0.8.13
+Solc 0.8.13 finished in 576.70ms
+Compiler run successful with warnings:
+Warning (3420): Source file does not specify required compiler version! Consider adding "pragma solidity ^0.8.13;"
+--> script/Counter.s.sol
+
+Warning (2072): Unused local variable.
+  --> test/ERC721.t.sol:32:9:
+   |
+32 |         uint256 tokenId = nft.mint(user1);
+   |         ^^^^^^^^^^^^^^^
+
+Warning (2072): Unused local variable.
+  --> test/ERC721.t.sol:53:9:
+   |
+53 |         uint tokenId = nft.mint(user1);
+   |         ^^^^^^^^^^^^
+
+Analysing contracts...
+Running tests...
+
+Ran 4 tests for test/ERC20 .t.sol:ERC20Test
+[PASS] testBurn() (gas: 59860)
+[PASS] testMint() (gas: 57194)
+[PASS] testTransfer() (gas: 91278)
+[PASS] testTransferFrom() (gas: 97454)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 1.03ms (1.15ms CPU time)
+
+Ran 6 tests for test/ERC721.t.sol:ERC721
+[PASS] testApproval() (gas: 110913)
+[PASS] testBurn() (gas: 69171)
+[PASS] testMint() (gas: 86559)
+[PASS] testMintRevertIfNotOwner() (gas: 11897)
+[PASS] testSetApprovalForAll() (gas: 40547)
+[PASS] testTransferFrom() (gas: 122019)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 1.97ms (3.64ms CPU time)
+
+Ran 2 test suites in 7.42ms (3.00ms CPU time): 10 tests passed, 0 failed, 0 skipped (10 total tests)
+src/ERC20.sol:
+- Line (location: (source ID: 20, lines: 17..22, bytes: 417..557), hits: 4) -> "constructor(string memory _name,...;\n        i_decimals = 18;\n    }"
+- Function "constructor" (location: (source ID: 20, lines: 17..22, bytes: 417..557), hits: 4) -> "constructor(string memory _name,...;\n        i_decimals = 18;\n    }"
+- Line (location: (source ID: 20, lines: 18..19, bytes: 483..497), hits: 4) -> "s_name = _name"
+- Statement (location: (source ID: 20, lines: 18..19, bytes: 483..497), hits: 4) -> "s_name = _name"
+- Line (location: (source ID: 20, lines: 19..20, bytes: 507..525), hits: 4) -> "s_symbol = _symbol"
+- Statement (location: (source ID: 20, lines: 19..20, bytes: 507..525), hits: 4) -> "s_symbol = _symbol"
+- Line (location: (source ID: 20, lines: 20..21, bytes: 535..550), hits: 4) -> "i_decimals = 18"
+- Statement (location: (source ID: 20, lines: 20..21, bytes: 535..550), hits: 4) -> "i_decimals = 18"
+- Line (location: (source ID: 20, lines: 23..31, bytes: 563..921), hits: 1) -> "function transfer(address recipi...unt);\n        return true;\n    }"
+- Function "transfer" (location: (source ID: 20, lines: 23..31, bytes: 563..921), hits: 1) -> "function transfer(address recipi...unt);\n        return true;\n    }"
+- Line (location: (source ID: 20, lines: 24..25, bytes: 649..691), hits: 1) -> "require(amount > 0, \"Insufficient amount\")"
+- Statement (location: (source ID: 20, lines: 24..25, bytes: 649..691), hits: 1) -> "require(amount > 0, \"Insufficient amount\")"
+- Branch (branch: 0, path: 0) (location: (source ID: 20, lines: 24..25, bytes: 649..691), hits: 0) -> "require(amount > 0, \"Insufficient amount\")"
+- Branch (branch: 0, path: 1) (location: (source ID: 20, lines: 24..25, bytes: 649..691), hits: 1) -> "require(amount > 0, \"Insufficient amount\")"
+- Line (location: (source ID: 20, lines: 25..26, bytes: 701..761), hits: 1) -> "require(address(recipient) != address(0), \"Invalid address\")"
+- Statement (location: (source ID: 20, lines: 25..26, bytes: 701..761), hits: 1) -> "require(address(recipient) != address(0), \"Invalid address\")"
+- Branch (branch: 1, path: 0) (location: (source ID: 20, lines: 25..26, bytes: 701..761), hits: 0) -> "require(address(recipient) != address(0), \"Invalid address\")"
+- Branch (branch: 1, path: 1) (location: (source ID: 20, lines: 25..26, bytes: 701..761), hits: 1) -> "require(address(recipient) != address(0), \"Invalid address\")"
+- Line (location: (source ID: 20, lines: 26..27, bytes: 771..800), hits: 1) -> "balances[recipient] += amount"
+- Statement (location: (source ID: 20, lines: 26..27, bytes: 771..800), hits: 1) -> "balances[recipient] += amount"
+- Line (location: (source ID: 20, lines: 27..28, bytes: 810..840), hits: 1) -> "balances[msg.sender] -= amount"
+- Statement (location: (source ID: 20, lines: 27..28, bytes: 810..840), hits: 1) -> "balances[msg.sender] -= amount"
+- Line (location: (source ID: 20, lines: 28..29, bytes: 850..893), hits: 1) -> "emit Transfer(msg.sender,recipient, amount)"
+- Statement (location: (source ID: 20, lines: 28..29, bytes: 850..893), hits: 1) -> "emit Transfer(msg.sender,recipient, amount)"
+- Line (location: (source ID: 20, lines: 29..30, bytes: 903..914), hits: 1) -> "return true"
+- Statement (location: (source ID: 20, lines: 29..30, bytes: 903..914), hits: 1) -> "return true"
+- Line (location: (source ID: 20, lines: 32..36, bytes: 927..1068), hits: 1) -> "function approve(address to, uin...ount;\n        return true;\n    }"
+- Function "approve" (location: (source ID: 20, lines: 32..36, bytes: 927..1068), hits: 1) -> "function approve(address to, uin...ount;\n        return true;\n    }"
+- Line (location: (source ID: 20, lines: 33..34, bytes: 1005..1040), hits: 1) -> "allowances[msg.sender][to] = amount"
+- Statement (location: (source ID: 20, lines: 33..34, bytes: 1005..1040), hits: 1) -> "allowances[msg.sender][to] = amount"
+- Line (location: (source ID: 20, lines: 34..35, bytes: 1050..1061), hits: 1) -> "return true"
+- Statement (location: (source ID: 20, lines: 34..35, bytes: 1050..1061), hits: 1) -> "return true"
+- Line (location: (source ID: 20, lines: 37..44, bytes: 1074..1343), hits: 1) -> "function transferFrom(address fr...unt);\n        return true;\n    }"
+- Function "transferFrom" (location: (source ID: 20, lines: 37..44, bytes: 1074..1343), hits: 1) -> "function transferFrom(address fr...unt);\n        return true;\n    }"
+- Line (location: (source ID: 20, lines: 38..39, bytes: 1170..1194), hits: 1) -> "balances[from] -= amount"
+- Statement (location: (source ID: 20, lines: 38..39, bytes: 1170..1194), hits: 1) -> "balances[from] -= amount"
+- Line (location: (source ID: 20, lines: 39..40, bytes: 1204..1226), hits: 1) -> "balances[to] += amount"
+- Statement (location: (source ID: 20, lines: 39..40, bytes: 1204..1226), hits: 1) -> "balances[to] += amount"
+- Line (location: (source ID: 20, lines: 40..41, bytes: 1236..1274), hits: 1) -> "allowances[from][msg.sender] -= amount"
+- Statement (location: (source ID: 20, lines: 40..41, bytes: 1236..1274), hits: 1) -> "allowances[from][msg.sender] -= amount"
+- Line (location: (source ID: 20, lines: 41..42, bytes: 1284..1315), hits: 1) -> "emit Transfer(from, to, amount)"
+- Statement (location: (source ID: 20, lines: 41..42, bytes: 1284..1315), hits: 1) -> "emit Transfer(from, to, amount)"
+- Line (location: (source ID: 20, lines: 42..43, bytes: 1325..1336), hits: 1) -> "return true"
+- Statement (location: (source ID: 20, lines: 42..43, bytes: 1325..1336), hits: 1) -> "return true"
+- Line (location: (source ID: 20, lines: 45..50, bytes: 1349..1521), hits: 4) -> "function _mint(address to, uint2...(address(0), to , amount);\n    }"
+- Function "_mint" (location: (source ID: 20, lines: 45..50, bytes: 1349..1521), hits: 4) -> "function _mint(address to, uint2...(address(0), to , amount);\n    }"
+- Line (location: (source ID: 20, lines: 46..47, bytes: 1411..1433), hits: 4) -> "balances[to] += amount"
+- Statement (location: (source ID: 20, lines: 46..47, bytes: 1411..1433), hits: 4) -> "balances[to] += amount"
+- Line (location: (source ID: 20, lines: 47..48, bytes: 1443..1466), hits: 4) -> "s_totalSupply += amount"
+- Statement (location: (source ID: 20, lines: 47..48, bytes: 1443..1466), hits: 4) -> "s_totalSupply += amount"
+- Line (location: (source ID: 20, lines: 48..49, bytes: 1476..1514), hits: 4) -> "emit Transfer(address(0), to , amount)"
+- Statement (location: (source ID: 20, lines: 48..49, bytes: 1476..1514), hits: 4) -> "emit Transfer(address(0), to , amount)"
+- Line (location: (source ID: 20, lines: 51..55, bytes: 1528..1656), hits: 1) -> "function _burn(address from, uin...  s_totalSupply -= amount;\n    }"
+- Function "_burn" (location: (source ID: 20, lines: 51..55, bytes: 1528..1656), hits: 1) -> "function _burn(address from, uin...  s_totalSupply -= amount;\n    }"
+- Line (location: (source ID: 20, lines: 52..53, bytes: 1592..1616), hits: 1) -> "balances[from] -= amount"
+- Statement (location: (source ID: 20, lines: 52..53, bytes: 1592..1616), hits: 1) -> "balances[from] -= amount"
+- Line (location: (source ID: 20, lines: 53..54, bytes: 1626..1649), hits: 1) -> "s_totalSupply -= amount"
+- Statement (location: (source ID: 20, lines: 53..54, bytes: 1626..1649), hits: 1) -> "s_totalSupply -= amount"
+- Line (location: (source ID: 20, lines: 57..60, bytes: 1663..1748), hits: 4) -> "function mint(address to, uint25...        _mint(to, amount);\n    }"
+- Function "mint" (location: (source ID: 20, lines: 57..60, bytes: 1663..1748), hits: 4) -> "function mint(address to, uint25...        _mint(to, amount);\n    }"
+- Line (location: (source ID: 20, lines: 58..59, bytes: 1724..1741), hits: 4) -> "_mint(to, amount)"
+- Statement (location: (source ID: 20, lines: 58..59, bytes: 1724..1741), hits: 4) -> "_mint(to, amount)"
+- Line (location: (source ID: 20, lines: 61..64, bytes: 1754..1843), hits: 1) -> "function burn(address from, uint...      _burn(from, amount);\n    }"
+- Function "burn" (location: (source ID: 20, lines: 61..64, bytes: 1754..1843), hits: 1) -> "function burn(address from, uint...      _burn(from, amount);\n    }"
+- Line (location: (source ID: 20, lines: 62..63, bytes: 1817..1836), hits: 1) -> "_burn(from, amount)"
+- Statement (location: (source ID: 20, lines: 62..63, bytes: 1817..1836), hits: 1) -> "_burn(from, amount)"
+- Line (location: (source ID: 20, lines: 65..68, bytes: 1849..1957), hits: 6) -> "function balanceOf(address accou... return balances[account];\n    }"
+- Function "balanceOf" (location: (source ID: 20, lines: 65..68, bytes: 1849..1957), hits: 6) -> "function balanceOf(address accou... return balances[account];\n    }"
+- Line (location: (source ID: 20, lines: 66..67, bytes: 1926..1950), hits: 6) -> "return balances[account]"
+- Statement (location: (source ID: 20, lines: 66..67, bytes: 1926..1950), hits: 6) -> "return balances[account]"
+
+src/ERC721.sol:
+- Line (location: (source ID: 21, lines: 36..40, bytes: 1197..1289), hits: 0) -> "modifier onlyOwner() {\n        i...rt OnlyOwner();\n        _;\n    }"
+- Function "onlyOwner" (location: (source ID: 21, lines: 36..40, bytes: 1197..1289), hits: 0) -> "modifier onlyOwner() {\n        i...rt OnlyOwner();\n        _;\n    }"
+- Line (location: (source ID: 21, lines: 37..38, bytes: 1232..1251), hits: 0) -> "msg.sender != owner"
+- Statement (location: (source ID: 21, lines: 37..38, bytes: 1232..1251), hits: 0) -> "msg.sender != owner"
+- Statement (location: (source ID: 21, lines: 37..38, bytes: 1253..1271), hits: 0) -> "revert OnlyOwner()"
+- Branch (branch: 0, path: 0) (location: (source ID: 21, lines: 37..38, bytes: 1253..1271), hits: 0) -> "revert OnlyOwner()"
+- Line (location: (source ID: 21, lines: 42..49, bytes: 1336..1555), hits: 6) -> "constructor(string memory _name,...       owner = msg.sender;\n    }"
+- Function "constructor" (location: (source ID: 21, lines: 42..49, bytes: 1336..1555), hits: 6) -> "constructor(string memory _name,...       owner = msg.sender;\n    }"
+- Line (location: (source ID: 21, lines: 43..44, bytes: 1426..1438), hits: 6) -> "name = _name"
+- Statement (location: (source ID: 21, lines: 43..44, bytes: 1426..1438), hits: 6) -> "name = _name"
+- Line (location: (source ID: 21, lines: 44..45, bytes: 1448..1464), hits: 6) -> "symbol = _symbol"
+- Statement (location: (source ID: 21, lines: 44..45, bytes: 1448..1464), hits: 6) -> "symbol = _symbol"
+- Line (location: (source ID: 21, lines: 45..46, bytes: 1474..1492), hits: 6) -> "baseURI = _baseURI"
+- Statement (location: (source ID: 21, lines: 45..46, bytes: 1474..1492), hits: 6) -> "baseURI = _baseURI"
+- Line (location: (source ID: 21, lines: 46..47, bytes: 1502..1520), hits: 6) -> "tokenIdCounter = 0"
+- Statement (location: (source ID: 21, lines: 46..47, bytes: 1502..1520), hits: 6) -> "tokenIdCounter = 0"
+- Line (location: (source ID: 21, lines: 47..48, bytes: 1530..1548), hits: 6) -> "owner = msg.sender"
+- Statement (location: (source ID: 21, lines: 47..48, bytes: 1530..1548), hits: 6) -> "owner = msg.sender"
+- Line (location: (source ID: 21, lines: 52..56, bytes: 1610..1773), hits: 2) -> "function balanceOf(address _owne...  return balances[_owner];\n    }"
+- Function "balanceOf" (location: (source ID: 21, lines: 52..56, bytes: 1610..1773), hits: 2) -> "function balanceOf(address _owne...  return balances[_owner];\n    }"
+- Line (location: (source ID: 21, lines: 53..54, bytes: 1688..1708), hits: 2) -> "_owner == address(0)"
+- Statement (location: (source ID: 21, lines: 53..54, bytes: 1688..1708), hits: 2) -> "_owner == address(0)"
+- Statement (location: (source ID: 21, lines: 53..54, bytes: 1710..1733), hits: 0) -> "revert InvalidAddress()"
+- Branch (branch: 1, path: 0) (location: (source ID: 21, lines: 53..54, bytes: 1710..1733), hits: 0) -> "revert InvalidAddress()"
+- Line (location: (source ID: 21, lines: 54..55, bytes: 1743..1766), hits: 2) -> "return balances[_owner]"
+- Statement (location: (source ID: 21, lines: 54..55, bytes: 1743..1766), hits: 2) -> "return balances[_owner]"
+- Line (location: (source ID: 21, lines: 57..62, bytes: 1779..1984), hits: 2) -> "function ownerOf(uint256 _tokenI...;\n        return nftOwner;\n    }"
+- Function "ownerOf" (location: (source ID: 21, lines: 57..62, bytes: 1779..1984), hits: 2) -> "function ownerOf(uint256 _tokenI...;\n        return nftOwner;\n    }"
+- Line (location: (source ID: 21, lines: 58..59, bytes: 1853..1888), hits: 2) -> "address nftOwner = owners[_tokenId]"
+- Statement (location: (source ID: 21, lines: 58..59, bytes: 1853..1888), hits: 2) -> "address nftOwner = owners[_tokenId]"
+- Line (location: (source ID: 21, lines: 59..60, bytes: 1902..1924), hits: 2) -> "nftOwner == address(0)"
+- Statement (location: (source ID: 21, lines: 59..60, bytes: 1902..1924), hits: 2) -> "nftOwner == address(0)"
+- Statement (location: (source ID: 21, lines: 59..60, bytes: 1926..1952), hits: 0) -> "revert TokenDoesNotExist()"
+- Branch (branch: 2, path: 0) (location: (source ID: 21, lines: 59..60, bytes: 1926..1952), hits: 0) -> "revert TokenDoesNotExist()"
+- Line (location: (source ID: 21, lines: 60..61, bytes: 1962..1977), hits: 2) -> "return nftOwner"
+- Statement (location: (source ID: 21, lines: 60..61, bytes: 1962..1977), hits: 2) -> "return nftOwner"
+- Line (location: (source ID: 21, lines: 63..67, bytes: 1990..2178), hits: 1) -> "function getApproved(uint256 _to...n tokenApproval[_tokenId];\n    }"
+- Function "getApproved" (location: (source ID: 21, lines: 63..67, bytes: 1990..2178), hits: 1) -> "function getApproved(uint256 _to...n tokenApproval[_tokenId];\n    }"
+- Line (location: (source ID: 21, lines: 64..65, bytes: 2073..2103), hits: 1) -> "owners[_tokenId] == address(0)"
+- Statement (location: (source ID: 21, lines: 64..65, bytes: 2073..2103), hits: 1) -> "owners[_tokenId] == address(0)"
+- Statement (location: (source ID: 21, lines: 64..65, bytes: 2105..2131), hits: 0) -> "revert TokenDoesNotExist()"
+- Branch (branch: 3, path: 0) (location: (source ID: 21, lines: 64..65, bytes: 2105..2131), hits: 0) -> "revert TokenDoesNotExist()"
+- Line (location: (source ID: 21, lines: 65..66, bytes: 2141..2171), hits: 1) -> "return tokenApproval[_tokenId]"
+- Statement (location: (source ID: 21, lines: 65..66, bytes: 2141..2171), hits: 1) -> "return tokenApproval[_tokenId]"
+- Line (location: (source ID: 21, lines: 68..71, bytes: 2184..2331), hits: 1) -> "function isApprovedForAll(addres...proval[_owner][_operator];\n    }"
+- Function "isApprovedForAll" (location: (source ID: 21, lines: 68..71, bytes: 2184..2331), hits: 1) -> "function isApprovedForAll(addres...proval[_owner][_operator];\n    }"
+- Line (location: (source ID: 21, lines: 69..70, bytes: 2282..2324), hits: 1) -> "return operatorApproval[_owner][_operator]"
+- Statement (location: (source ID: 21, lines: 69..70, bytes: 2282..2324), hits: 1) -> "return operatorApproval[_owner][_operator]"
+- Line (location: (source ID: 21, lines: 72..76, bytes: 2337..2559), hits: 0) -> "function tokenURI(uint256 _token...RI, _toString(_tokenId)));\n    }"
+- Function "tokenURI" (location: (source ID: 21, lines: 72..76, bytes: 2337..2559), hits: 0) -> "function tokenURI(uint256 _token...RI, _toString(_tokenId)));\n    }"
+- Line (location: (source ID: 21, lines: 73..74, bytes: 2423..2453), hits: 0) -> "owners[_tokenId] == address(0)"
+- Statement (location: (source ID: 21, lines: 73..74, bytes: 2423..2453), hits: 0) -> "owners[_tokenId] == address(0)"
+- Statement (location: (source ID: 21, lines: 73..74, bytes: 2455..2481), hits: 0) -> "revert TokenDoesNotExist()"
+- Branch (branch: 4, path: 0) (location: (source ID: 21, lines: 73..74, bytes: 2455..2481), hits: 0) -> "revert TokenDoesNotExist()"
+- Line (location: (source ID: 21, lines: 74..75, bytes: 2491..2552), hits: 0) -> "return string(abi.encodePacked(baseURI, _toString(_tokenId)))"
+- Statement (location: (source ID: 21, lines: 74..75, bytes: 2491..2552), hits: 0) -> "return string(abi.encodePacked(baseURI, _toString(_tokenId)))"
+- Line (location: (source ID: 21, lines: 79..88, bytes: 2614..3071), hits: 1) -> "function approve(address _spende...wner, _spender, _tokenId);\n    }"
+- Function "approve" (location: (source ID: 21, lines: 79..88, bytes: 2614..3071), hits: 1) -> "function approve(address _spende...wner, _spender, _tokenId);\n    }"
+- Line (location: (source ID: 21, lines: 80..81, bytes: 2684..2719), hits: 1) -> "address nftOwner = owners[_tokenId]"
+- Statement (location: (source ID: 21, lines: 80..81, bytes: 2684..2719), hits: 1) -> "address nftOwner = owners[_tokenId]"
+- Line (location: (source ID: 21, lines: 81..82, bytes: 2733..2755), hits: 1) -> "nftOwner == address(0)"
+- Statement (location: (source ID: 21, lines: 81..82, bytes: 2733..2755), hits: 1) -> "nftOwner == address(0)"
+- Statement (location: (source ID: 21, lines: 81..82, bytes: 2757..2783), hits: 0) -> "revert TokenDoesNotExist()"
+- Branch (branch: 5, path: 0) (location: (source ID: 21, lines: 81..82, bytes: 2757..2783), hits: 0) -> "revert TokenDoesNotExist()"
+- Line (location: (source ID: 21, lines: 82..83, bytes: 2797..2819), hits: 1) -> "msg.sender != nftOwner"
+- Statement (location: (source ID: 21, lines: 82..83, bytes: 2797..2819), hits: 1) -> "msg.sender != nftOwner"
+- Statement (location: (source ID: 21, lines: 82..83, bytes: 2797..2862), hits: 1) -> "msg.sender != nftOwner && !opera...orApproval[nftOwner][msg.sender]"
+- Statement (location: (source ID: 21, lines: 82..83, bytes: 2823..2862), hits: 0) -> "!operatorApproval[nftOwner][msg.sender]"
+- Statement (location: (source ID: 21, lines: 82..83, bytes: 2864..2886), hits: 0) -> "revert NotAuthorized()"
+- Branch (branch: 6, path: 0) (location: (source ID: 21, lines: 82..83, bytes: 2864..2886), hits: 0) -> "revert NotAuthorized()"
+- Line (location: (source ID: 21, lines: 83..84, bytes: 2900..2920), hits: 1) -> "_spender == nftOwner"
+- Statement (location: (source ID: 21, lines: 83..84, bytes: 2900..2920), hits: 1) -> "_spender == nftOwner"
+- Statement (location: (source ID: 21, lines: 83..84, bytes: 2922..2958), hits: 0) -> "revert CannotApproveToCurrentOwner()"
+- Branch (branch: 7, path: 0) (location: (source ID: 21, lines: 83..84, bytes: 2922..2958), hits: 0) -> "revert CannotApproveToCurrentOwner()"
+- Line (location: (source ID: 21, lines: 85..86, bytes: 2977..3011), hits: 1) -> "tokenApproval[_tokenId] = _spender"
+- Statement (location: (source ID: 21, lines: 85..86, bytes: 2977..3011), hits: 1) -> "tokenApproval[_tokenId] = _spender"
+- Line (location: (source ID: 21, lines: 86..87, bytes: 3021..3064), hits: 1) -> "emit Approval(nftOwner, _spender, _tokenId)"
+- Statement (location: (source ID: 21, lines: 86..87, bytes: 3021..3064), hits: 1) -> "emit Approval(nftOwner, _spender, _tokenId)"
+- Line (location: (source ID: 21, lines: 89..94, bytes: 3077..3342), hits: 1) -> "function setApprovalForAll(addre...er, _operator, _approved);\n    }"
+- Function "setApprovalForAll" (location: (source ID: 21, lines: 89..94, bytes: 3077..3342), hits: 1) -> "function setApprovalForAll(addre...er, _operator, _approved);\n    }"
+- Line (location: (source ID: 21, lines: 90..91, bytes: 3160..3183), hits: 1) -> "_operator == msg.sender"
+- Statement (location: (source ID: 21, lines: 90..91, bytes: 3160..3183), hits: 1) -> "_operator == msg.sender"
+- Statement (location: (source ID: 21, lines: 90..91, bytes: 3185..3211), hits: 0) -> "revert CannotApproveSelf()"
+- Branch (branch: 8, path: 0) (location: (source ID: 21, lines: 90..91, bytes: 3185..3211), hits: 0) -> "revert CannotApproveSelf()"
+- Line (location: (source ID: 21, lines: 91..92, bytes: 3221..3272), hits: 1) -> "operatorApproval[msg.sender][_operator] = _approved"
+- Statement (location: (source ID: 21, lines: 91..92, bytes: 3221..3272), hits: 1) -> "operatorApproval[msg.sender][_operator] = _approved"
+- Line (location: (source ID: 21, lines: 92..93, bytes: 3282..3335), hits: 1) -> "emit ApprovalForAll(msg.sender, _operator, _approved)"
+- Statement (location: (source ID: 21, lines: 92..93, bytes: 3282..3335), hits: 1) -> "emit ApprovalForAll(msg.sender, _operator, _approved)"
+- Line (location: (source ID: 21, lines: 97..109, bytes: 3396..3889), hits: 1) -> "function transferFrom(address _f...fer(_from, _to, _tokenId);\n    }"
+- Function "transferFrom" (location: (source ID: 21, lines: 97..109, bytes: 3396..3889), hits: 1) -> "function transferFrom(address _f...fer(_from, _to, _tokenId);\n    }"
+- Line (location: (source ID: 21, lines: 98..99, bytes: 3485..3526), hits: 1) -> "!_isApprovedOrOwner(msg.sender, _tokenId)"
+- Statement (location: (source ID: 21, lines: 98..99, bytes: 3485..3526), hits: 1) -> "!_isApprovedOrOwner(msg.sender, _tokenId)"
+- Statement (location: (source ID: 21, lines: 98..99, bytes: 3528..3550), hits: 0) -> "revert NotAuthorized()"
+- Branch (branch: 9, path: 0) (location: (source ID: 21, lines: 98..99, bytes: 3528..3550), hits: 0) -> "revert NotAuthorized()"
+- Line (location: (source ID: 21, lines: 99..100, bytes: 3564..3589), hits: 1) -> "owners[_tokenId] != _from"
+- Statement (location: (source ID: 21, lines: 99..100, bytes: 3564..3589), hits: 1) -> "owners[_tokenId] != _from"
+- Statement (location: (source ID: 21, lines: 99..100, bytes: 3591..3614), hits: 0) -> "revert FromIsNotOwner()"
+- Branch (branch: 10, path: 0) (location: (source ID: 21, lines: 99..100, bytes: 3591..3614), hits: 0) -> "revert FromIsNotOwner()"
+- Line (location: (source ID: 21, lines: 100..101, bytes: 3628..3645), hits: 1) -> "_to == address(0)"
+- Statement (location: (source ID: 21, lines: 100..101, bytes: 3628..3645), hits: 1) -> "_to == address(0)"
+- Statement (location: (source ID: 21, lines: 100..101, bytes: 3647..3683), hits: 0) -> "revert CannotTransferToZeroAddress()"
+- Branch (branch: 11, path: 0) (location: (source ID: 21, lines: 100..101, bytes: 3647..3683), hits: 0) -> "revert CannotTransferToZeroAddress()"
+- Line (location: (source ID: 21, lines: 102..103, bytes: 3702..3738), hits: 1) -> "tokenApproval[_tokenId] = address(0)"
+- Statement (location: (source ID: 21, lines: 102..103, bytes: 3702..3738), hits: 1) -> "tokenApproval[_tokenId] = address(0)"
+- Line (location: (source ID: 21, lines: 103..104, bytes: 3748..3768), hits: 1) -> "balances[_from] -= 1"
+- Statement (location: (source ID: 21, lines: 103..104, bytes: 3748..3768), hits: 1) -> "balances[_from] -= 1"
+- Line (location: (source ID: 21, lines: 104..105, bytes: 3778..3796), hits: 1) -> "balances[_to] += 1"
+- Statement (location: (source ID: 21, lines: 104..105, bytes: 3778..3796), hits: 1) -> "balances[_to] += 1"
+- Line (location: (source ID: 21, lines: 105..106, bytes: 3806..3828), hits: 1) -> "owners[_tokenId] = _to"
+- Statement (location: (source ID: 21, lines: 105..106, bytes: 3806..3828), hits: 1) -> "owners[_tokenId] = _to"
+- Line (location: (source ID: 21, lines: 107..108, bytes: 3847..3882), hits: 1) -> "emit Transfer(_from, _to, _tokenId)"
+- Statement (location: (source ID: 21, lines: 107..108, bytes: 3847..3882), hits: 1) -> "emit Transfer(_from, _to, _tokenId)"
+- Line (location: (source ID: 21, lines: 112..126, bytes: 3937..4348), hits: 6) -> "function mint(address _to) publi...  \n        return tokenId;\n    }"
+- Function "mint" (location: (source ID: 21, lines: 112..126, bytes: 3937..4348), hits: 6) -> "function mint(address _to) publi...  \n        return tokenId;\n    }"
+- Line (location: (source ID: 21, lines: 113..114, bytes: 4002..4021), hits: 6) -> "msg.sender != owner"
+- Statement (location: (source ID: 21, lines: 113..114, bytes: 4002..4021), hits: 6) -> "msg.sender != owner"
+- Statement (location: (source ID: 21, lines: 113..114, bytes: 4023..4040), hits: 1) -> "revert NotOwner()"
+- Branch (branch: 12, path: 0) (location: (source ID: 21, lines: 113..114, bytes: 4023..4040), hits: 1) -> "revert NotOwner()"
+- Line (location: (source ID: 21, lines: 114..115, bytes: 4054..4071), hits: 5) -> "_to == address(0)"
+- Statement (location: (source ID: 21, lines: 114..115, bytes: 4054..4071), hits: 5) -> "_to == address(0)"
+- Statement (location: (source ID: 21, lines: 114..115, bytes: 4073..4105), hits: 0) -> "revert CannotMintToZeroAddress()"
+- Branch (branch: 13, path: 0) (location: (source ID: 21, lines: 114..115, bytes: 4073..4105), hits: 0) -> "revert CannotMintToZeroAddress()"
+- Line (location: (source ID: 21, lines: 116..117, bytes: 4124..4140), hits: 5) -> "tokenIdCounter++"
+- Statement (location: (source ID: 21, lines: 116..117, bytes: 4124..4140), hits: 5) -> "tokenIdCounter++"
+- Line (location: (source ID: 21, lines: 117..118, bytes: 4150..4182), hits: 5) -> "uint256 tokenId = tokenIdCounter"
+- Statement (location: (source ID: 21, lines: 117..118, bytes: 4150..4182), hits: 5) -> "uint256 tokenId = tokenIdCounter"
+- Line (location: (source ID: 21, lines: 119..120, bytes: 4201..4219), hits: 5) -> "balances[_to] += 1"
+- Statement (location: (source ID: 21, lines: 119..120, bytes: 4201..4219), hits: 5) -> "balances[_to] += 1"
+- Line (location: (source ID: 21, lines: 120..121, bytes: 4229..4250), hits: 5) -> "owners[tokenId] = _to"
+- Statement (location: (source ID: 21, lines: 120..121, bytes: 4229..4250), hits: 5) -> "owners[tokenId] = _to"
+- Line (location: (source ID: 21, lines: 122..123, bytes: 4269..4308), hits: 5) -> "emit Transfer(address(0), _to, tokenId)"
+- Statement (location: (source ID: 21, lines: 122..123, bytes: 4269..4308), hits: 5) -> "emit Transfer(address(0), _to, tokenId)"
+- Line (location: (source ID: 21, lines: 124..125, bytes: 4327..4341), hits: 5) -> "return tokenId"
+- Statement (location: (source ID: 21, lines: 124..125, bytes: 4327..4341), hits: 5) -> "return tokenId"
+- Line (location: (source ID: 21, lines: 127..138, bytes: 4354..4749), hits: 1) -> "function burn(uint256 _tokenId) ...er, address(0), _tokenId);\n    }"
+- Function "burn" (location: (source ID: 21, lines: 127..138, bytes: 4354..4749), hits: 1) -> "function burn(uint256 _tokenId) ...er, address(0), _tokenId);\n    }"
+- Line (location: (source ID: 21, lines: 128..129, bytes: 4403..4438), hits: 1) -> "address nftOwner = owners[_tokenId]"
+- Statement (location: (source ID: 21, lines: 128..129, bytes: 4403..4438), hits: 1) -> "address nftOwner = owners[_tokenId]"
+- Line (location: (source ID: 21, lines: 129..130, bytes: 4452..4474), hits: 1) -> "nftOwner == address(0)"
+- Statement (location: (source ID: 21, lines: 129..130, bytes: 4452..4474), hits: 1) -> "nftOwner == address(0)"
+- Statement (location: (source ID: 21, lines: 129..130, bytes: 4476..4502), hits: 0) -> "revert TokenDoesNotExist()"
+- Branch (branch: 14, path: 0) (location: (source ID: 21, lines: 129..130, bytes: 4476..4502), hits: 0) -> "revert TokenDoesNotExist()"
+- Line (location: (source ID: 21, lines: 130..131, bytes: 4516..4538), hits: 1) -> "msg.sender != nftOwner"
+- Statement (location: (source ID: 21, lines: 130..131, bytes: 4516..4538), hits: 1) -> "msg.sender != nftOwner"
+- Statement (location: (source ID: 21, lines: 130..131, bytes: 4540..4557), hits: 0) -> "revert NotOwner()"
+- Branch (branch: 15, path: 0) (location: (source ID: 21, lines: 130..131, bytes: 4540..4557), hits: 0) -> "revert NotOwner()"
+- Line (location: (source ID: 21, lines: 132..133, bytes: 4576..4612), hits: 1) -> "tokenApproval[_tokenId] = address(0)"
+- Statement (location: (source ID: 21, lines: 132..133, bytes: 4576..4612), hits: 1) -> "tokenApproval[_tokenId] = address(0)"
+- Line (location: (source ID: 21, lines: 133..134, bytes: 4622..4645), hits: 1) -> "balances[nftOwner] -= 1"
+- Statement (location: (source ID: 21, lines: 133..134, bytes: 4622..4645), hits: 1) -> "balances[nftOwner] -= 1"
+- Line (location: (source ID: 21, lines: 136..137, bytes: 4697..4742), hits: 1) -> "emit Transfer(nftOwner, address(0), _tokenId)"
+- Statement (location: (source ID: 21, lines: 136..137, bytes: 4697..4742), hits: 1) -> "emit Transfer(nftOwner, address(0), _tokenId)"
+- Line (location: (source ID: 21, lines: 141..151, bytes: 4802..5178), hits: 1) -> "function _isApprovedOrOwner(addr...Owner][spender]\n        );\n    }"
+- Function "_isApprovedOrOwner" (location: (source ID: 21, lines: 141..151, bytes: 4802..5178), hits: 1) -> "function _isApprovedOrOwner(addr...Owner][spender]\n        );\n    }"
+- Line (location: (source ID: 21, lines: 142..143, bytes: 4903..4937), hits: 1) -> "address nftOwner = owners[tokenId]"
+- Statement (location: (source ID: 21, lines: 142..143, bytes: 4903..4937), hits: 1) -> "address nftOwner = owners[tokenId]"
+- Line (location: (source ID: 21, lines: 143..144, bytes: 4951..4973), hits: 1) -> "nftOwner == address(0)"
+- Statement (location: (source ID: 21, lines: 143..144, bytes: 4951..4973), hits: 1) -> "nftOwner == address(0)"
+- Statement (location: (source ID: 21, lines: 143..144, bytes: 4975..5001), hits: 0) -> "revert TokenDoesNotExist()"
+- Branch (branch: 16, path: 0) (location: (source ID: 21, lines: 143..144, bytes: 4975..5001), hits: 0) -> "revert TokenDoesNotExist()"
+- Line (location: (source ID: 21, lines: 145..150, bytes: 5020..5171), hits: 1) -> "return (\n            spender == ...val[nftOwner][spender]\n        )"
+- Statement (location: (source ID: 21, lines: 145..150, bytes: 5020..5171), hits: 1) -> "return (\n            spender == ...val[nftOwner][spender]\n        )"
+- Line (location: (source ID: 21, lines: 152..171, bytes: 5184..5703), hits: 0) -> "function _toString(uint256 value...    return string(buffer);\n    }"
+- Function "_toString" (location: (source ID: 21, lines: 152..171, bytes: 5184..5703), hits: 0) -> "function _toString(uint256 value...    return string(buffer);\n    }"
+- Line (location: (source ID: 21, lines: 153..154, bytes: 5270..5280), hits: 0) -> "value == 0"
+- Statement (location: (source ID: 21, lines: 153..154, bytes: 5270..5280), hits: 0) -> "value == 0"
+- Statement (location: (source ID: 21, lines: 153..154, bytes: 5282..5292), hits: 0) -> "return \"0\""
+- Branch (branch: 17, path: 0) (location: (source ID: 21, lines: 153..154, bytes: 5282..5292), hits: 0) -> "return \"0\""
+- Line (location: (source ID: 21, lines: 155..156, bytes: 5311..5331), hits: 0) -> "uint256 temp = value"
+- Statement (location: (source ID: 21, lines: 155..156, bytes: 5311..5331), hits: 0) -> "uint256 temp = value"
+- Line (location: (source ID: 21, lines: 156..157, bytes: 5341..5355), hits: 0) -> "uint256 digits"
+- Statement (location: (source ID: 21, lines: 156..157, bytes: 5341..5355), hits: 0) -> "uint256 digits"
+- Line (location: (source ID: 21, lines: 157..158, bytes: 5372..5381), hits: 0) -> "temp != 0"
+- Statement (location: (source ID: 21, lines: 157..158, bytes: 5372..5381), hits: 0) -> "temp != 0"
+- Line (location: (source ID: 21, lines: 158..159, bytes: 5397..5405), hits: 0) -> "digits++"
+- Statement (location: (source ID: 21, lines: 158..159, bytes: 5397..5405), hits: 0) -> "digits++"
+- Line (location: (source ID: 21, lines: 159..160, bytes: 5419..5429), hits: 0) -> "temp /= 10"
+- Statement (location: (source ID: 21, lines: 159..160, bytes: 5419..5429), hits: 0) -> "temp /= 10"
+- Line (location: (source ID: 21, lines: 162..163, bytes: 5458..5497), hits: 0) -> "bytes memory buffer = new bytes(digits)"
+- Statement (location: (source ID: 21, lines: 162..163, bytes: 5458..5497), hits: 0) -> "bytes memory buffer = new bytes(digits)"
+- Statement (location: (source ID: 21, lines: 162..163, bytes: 5480..5497), hits: 0) -> "new bytes(digits)"
+- Line (location: (source ID: 21, lines: 163..164, bytes: 5514..5524), hits: 0) -> "value != 0"
+- Statement (location: (source ID: 21, lines: 163..164, bytes: 5514..5524), hits: 0) -> "value != 0"
+- Line (location: (source ID: 21, lines: 164..165, bytes: 5540..5551), hits: 0) -> "digits -= 1"
+- Statement (location: (source ID: 21, lines: 164..165, bytes: 5540..5551), hits: 0) -> "digits -= 1"
+- Line (location: (source ID: 21, lines: 165..166, bytes: 5565..5621), hits: 0) -> "buffer[digits] = bytes1(uint8(48 + uint256(value % 10)))"
+- Statement (location: (source ID: 21, lines: 165..166, bytes: 5565..5621), hits: 0) -> "buffer[digits] = bytes1(uint8(48 + uint256(value % 10)))"
+- Line (location: (source ID: 21, lines: 166..167, bytes: 5635..5646), hits: 0) -> "value /= 10"
+- Statement (location: (source ID: 21, lines: 166..167, bytes: 5635..5646), hits: 0) -> "value /= 10"
+- Line (location: (source ID: 21, lines: 169..170, bytes: 5675..5696), hits: 0) -> "return string(buffer)"
+- Statement (location: (source ID: 21, lines: 169..170, bytes: 5675..5696), hits: 0) -> "return string(buffer)"
+
+Anchors for Contract "NFT" (solc 0.8.13, source ID 21):
+- creation IC 5 -> Item 76: Line (location: (source ID: 21, lines: 42..49, bytes: 1336..1555), hits: 6)
+- creation IC 5 -> Item 77: Function "constructor" (location: (source ID: 21, lines: 42..49, bytes: 1336..1555), hits: 6)
+- creation IC 56 -> Item 78: Line (location: (source ID: 21, lines: 43..44, bytes: 1426..1438), hits: 6)
+- creation IC 56 -> Item 79: Statement (location: (source ID: 21, lines: 43..44, bytes: 1426..1438), hits: 6)
+- creation IC 81 -> Item 80: Line (location: (source ID: 21, lines: 44..45, bytes: 1448..1464), hits: 6)
+- creation IC 81 -> Item 81: Statement (location: (source ID: 21, lines: 44..45, bytes: 1448..1464), hits: 6)
+- creation IC 106 -> Item 82: Line (location: (source ID: 21, lines: 45..46, bytes: 1474..1492), hits: 6)
+- creation IC 106 -> Item 83: Statement (location: (source ID: 21, lines: 45..46, bytes: 1474..1492), hits: 6)
+- creation IC 131 -> Item 84: Line (location: (source ID: 21, lines: 46..47, bytes: 1502..1520), hits: 6)
+- creation IC 131 -> Item 85: Statement (location: (source ID: 21, lines: 46..47, bytes: 1502..1520), hits: 6)
+- creation IC 139 -> Item 86: Line (location: (source ID: 21, lines: 47..48, bytes: 1530..1548), hits: 6)
+- creation IC 139 -> Item 87: Statement (location: (source ID: 21, lines: 47..48, bytes: 1530..1548), hits: 6)
+-  runtime IC 443 -> Item 88: Line (location: (source ID: 21, lines: 52..56, bytes: 1610..1773), hits: 2)
+-  runtime IC 443 -> Item 89: Function "balanceOf" (location: (source ID: 21, lines: 52..56, bytes: 1610..1773), hits: 2)
+-  runtime IC 3728 -> Item 90: Line (location: (source ID: 21, lines: 53..54, bytes: 1688..1708), hits: 2)
+-  runtime IC 3728 -> Item 91: Statement (location: (source ID: 21, lines: 53..54, bytes: 1688..1708), hits: 2)
+-  runtime IC 3779 -> Item 92: Statement (location: (source ID: 21, lines: 53..54, bytes: 1710..1733), hits: 0)
+-  runtime IC 3779 -> Item 93: Branch (branch: 1, path: 0) (location: (source ID: 21, lines: 53..54, bytes: 1710..1733), hits: 0)
+-  runtime IC 3829 -> Item 94: Line (location: (source ID: 21, lines: 54..55, bytes: 1743..1766), hits: 2)
+-  runtime IC 3829 -> Item 95: Statement (location: (source ID: 21, lines: 54..55, bytes: 1743..1766), hits: 2)
+-  runtime IC 347 -> Item 96: Line (location: (source ID: 21, lines: 57..62, bytes: 1779..1984), hits: 2)
+-  runtime IC 347 -> Item 97: Function "ownerOf" (location: (source ID: 21, lines: 57..62, bytes: 1779..1984), hits: 2)
+-  runtime IC 3022 -> Item 98: Line (location: (source ID: 21, lines: 58..59, bytes: 1853..1888), hits: 2)
+-  runtime IC 3022 -> Item 99: Statement (location: (source ID: 21, lines: 58..59, bytes: 1853..1888), hits: 2)
+-  runtime IC 3077 -> Item 100: Line (location: (source ID: 21, lines: 59..60, bytes: 1902..1924), hits: 2)
+-  runtime IC 3077 -> Item 101: Statement (location: (source ID: 21, lines: 59..60, bytes: 1902..1924), hits: 2)
+-  runtime IC 3129 -> Item 102: Statement (location: (source ID: 21, lines: 59..60, bytes: 1926..1952), hits: 0)
+-  runtime IC 3129 -> Item 103: Branch (branch: 2, path: 0) (location: (source ID: 21, lines: 59..60, bytes: 1926..1952), hits: 0)
+-  runtime IC 3179 -> Item 104: Line (location: (source ID: 21, lines: 60..61, bytes: 1962..1977), hits: 2)
+-  runtime IC 3179 -> Item 105: Statement (location: (source ID: 21, lines: 60..61, bytes: 1962..1977), hits: 2)
+-  runtime IC 215 -> Item 106: Line (location: (source ID: 21, lines: 63..67, bytes: 1990..2178), hits: 1)
+-  runtime IC 215 -> Item 107: Function "getApproved" (location: (source ID: 21, lines: 63..67, bytes: 1990..2178), hits: 1)
+-  runtime IC 790 -> Item 108: Line (location: (source ID: 21, lines: 64..65, bytes: 2073..2103), hits: 1)
+-  runtime IC 790 -> Item 109: Statement (location: (source ID: 21, lines: 64..65, bytes: 2073..2103), hits: 1)
+-  runtime IC 892 -> Item 110: Statement (location: (source ID: 21, lines: 64..65, bytes: 2105..2131), hits: 0)
+-  runtime IC 892 -> Item 111: Branch (branch: 3, path: 0) (location: (source ID: 21, lines: 64..65, bytes: 2105..2131), hits: 0)
+-  runtime IC 942 -> Item 112: Line (location: (source ID: 21, lines: 65..66, bytes: 2141..2171), hits: 1)
+-  runtime IC 942 -> Item 113: Statement (location: (source ID: 21, lines: 65..66, bytes: 2141..2171), hits: 1)
+-  runtime IC 597 -> Item 114: Line (location: (source ID: 21, lines: 68..71, bytes: 2184..2331), hits: 1)
+-  runtime IC 597 -> Item 115: Function "isApprovedForAll" (location: (source ID: 21, lines: 68..71, bytes: 2184..2331), hits: 1)
+-  runtime IC 4603 -> Item 116: Line (location: (source ID: 21, lines: 69..70, bytes: 2282..2324), hits: 1)
+-  runtime IC 4603 -> Item 117: Statement (location: (source ID: 21, lines: 69..70, bytes: 2282..2324), hits: 1)
+-  runtime IC 549 -> Item 118: Line (location: (source ID: 21, lines: 72..76, bytes: 2337..2559), hits: 0)
+-  runtime IC 549 -> Item 119: Function "tokenURI" (location: (source ID: 21, lines: 72..76, bytes: 2337..2559), hits: 0)
+-  runtime IC 4398 -> Item 120: Line (location: (source ID: 21, lines: 73..74, bytes: 2423..2453), hits: 0)
+-  runtime IC 4398 -> Item 121: Statement (location: (source ID: 21, lines: 73..74, bytes: 2423..2453), hits: 0)
+-  runtime IC 4501 -> Item 122: Statement (location: (source ID: 21, lines: 73..74, bytes: 2455..2481), hits: 0)
+-  runtime IC 4501 -> Item 123: Branch (branch: 4, path: 0) (location: (source ID: 21, lines: 73..74, bytes: 2455..2481), hits: 0)
+-  runtime IC 4551 -> Item 124: Line (location: (source ID: 21, lines: 74..75, bytes: 2491..2552), hits: 0)
+-  runtime IC 4551 -> Item 125: Statement (location: (source ID: 21, lines: 74..75, bytes: 2491..2552), hits: 0)
+-  runtime IC 263 -> Item 126: Line (location: (source ID: 21, lines: 79..88, bytes: 2614..3071), hits: 1)
+-  runtime IC 263 -> Item 127: Function "approve" (location: (source ID: 21, lines: 79..88, bytes: 2614..3071), hits: 1)
+-  runtime IC 1001 -> Item 128: Line (location: (source ID: 21, lines: 80..81, bytes: 2684..2719), hits: 1)
+-  runtime IC 1001 -> Item 129: Statement (location: (source ID: 21, lines: 80..81, bytes: 2684..2719), hits: 1)
+-  runtime IC 1057 -> Item 130: Line (location: (source ID: 21, lines: 81..82, bytes: 2733..2755), hits: 1)
+-  runtime IC 1057 -> Item 131: Statement (location: (source ID: 21, lines: 81..82, bytes: 2733..2755), hits: 1)
+-  runtime IC 1109 -> Item 132: Statement (location: (source ID: 21, lines: 81..82, bytes: 2757..2783), hits: 0)
+-  runtime IC 1109 -> Item 133: Branch (branch: 5, path: 0) (location: (source ID: 21, lines: 81..82, bytes: 2757..2783), hits: 0)
+-  runtime IC 1159 -> Item 134: Line (location: (source ID: 21, lines: 82..83, bytes: 2797..2819), hits: 1)
+-  runtime IC 1159 -> Item 135: Statement (location: (source ID: 21, lines: 82..83, bytes: 2797..2819), hits: 1)
+-  runtime IC 1159 -> Item 136: Statement (location: (source ID: 21, lines: 82..83, bytes: 2797..2862), hits: 1)
+-  runtime IC 1214 -> Item 137: Statement (location: (source ID: 21, lines: 82..83, bytes: 2823..2862), hits: 0)
+-  runtime IC 1359 -> Item 138: Statement (location: (source ID: 21, lines: 82..83, bytes: 2864..2886), hits: 0)
+-  runtime IC 1359 -> Item 139: Branch (branch: 6, path: 0) (location: (source ID: 21, lines: 82..83, bytes: 2864..2886), hits: 0)
+-  runtime IC 1409 -> Item 140: Line (location: (source ID: 21, lines: 83..84, bytes: 2900..2920), hits: 1)
+-  runtime IC 1409 -> Item 141: Statement (location: (source ID: 21, lines: 83..84, bytes: 2900..2920), hits: 1)
+-  runtime IC 1460 -> Item 142: Statement (location: (source ID: 21, lines: 83..84, bytes: 2922..2958), hits: 0)
+-  runtime IC 1460 -> Item 143: Branch (branch: 7, path: 0) (location: (source ID: 21, lines: 83..84, bytes: 2922..2958), hits: 0)
+-  runtime IC 1510 -> Item 144: Line (location: (source ID: 21, lines: 85..86, bytes: 2977..3011), hits: 1)
+-  runtime IC 1510 -> Item 145: Statement (location: (source ID: 21, lines: 85..86, bytes: 2977..3011), hits: 1)
+-  runtime IC 1592 -> Item 146: Line (location: (source ID: 21, lines: 86..87, bytes: 3021..3064), hits: 1)
+-  runtime IC 1592 -> Item 147: Statement (location: (source ID: 21, lines: 86..87, bytes: 3021..3064), hits: 1)
+-  runtime IC 521 -> Item 148: Line (location: (source ID: 21, lines: 89..94, bytes: 3077..3342), hits: 1)
+-  runtime IC 521 -> Item 149: Function "setApprovalForAll" (location: (source ID: 21, lines: 89..94, bytes: 3077..3342), hits: 1)
+-  runtime IC 4042 -> Item 150: Line (location: (source ID: 21, lines: 90..91, bytes: 3160..3183), hits: 1)
+-  runtime IC 4042 -> Item 151: Statement (location: (source ID: 21, lines: 90..91, bytes: 3160..3183), hits: 1)
+-  runtime IC 4093 -> Item 152: Statement (location: (source ID: 21, lines: 90..91, bytes: 3185..3211), hits: 0)
+-  runtime IC 4093 -> Item 153: Branch (branch: 8, path: 0) (location: (source ID: 21, lines: 90..91, bytes: 3185..3211), hits: 0)
+-  runtime IC 4143 -> Item 154: Line (location: (source ID: 21, lines: 91..92, bytes: 3221..3272), hits: 1)
+-  runtime IC 4143 -> Item 155: Statement (location: (source ID: 21, lines: 91..92, bytes: 3221..3272), hits: 1)
+-  runtime IC 4291 -> Item 156: Line (location: (source ID: 21, lines: 92..93, bytes: 3282..3335), hits: 1)
+-  runtime IC 4291 -> Item 157: Statement (location: (source ID: 21, lines: 92..93, bytes: 3282..3335), hits: 1)
+-  runtime IC 291 -> Item 158: Line (location: (source ID: 21, lines: 97..109, bytes: 3396..3889), hits: 1)
+-  runtime IC 291 -> Item 159: Function "transferFrom" (location: (source ID: 21, lines: 97..109, bytes: 3396..3889), hits: 1)
+-  runtime IC 1688 -> Item 160: Line (location: (source ID: 21, lines: 98..99, bytes: 3485..3526), hits: 1)
+-  runtime IC 1688 -> Item 161: Statement (location: (source ID: 21, lines: 98..99, bytes: 3485..3526), hits: 1)
+-  runtime IC 1702 -> Item 162: Statement (location: (source ID: 21, lines: 98..99, bytes: 3528..3550), hits: 0)
+-  runtime IC 1702 -> Item 163: Branch (branch: 9, path: 0) (location: (source ID: 21, lines: 98..99, bytes: 3528..3550), hits: 0)
+-  runtime IC 1752 -> Item 164: Line (location: (source ID: 21, lines: 99..100, bytes: 3564..3589), hits: 1)
+-  runtime IC 1752 -> Item 165: Statement (location: (source ID: 21, lines: 99..100, bytes: 3564..3589), hits: 1)
+-  runtime IC 1854 -> Item 166: Statement (location: (source ID: 21, lines: 99..100, bytes: 3591..3614), hits: 0)
+-  runtime IC 1854 -> Item 167: Branch (branch: 10, path: 0) (location: (source ID: 21, lines: 99..100, bytes: 3591..3614), hits: 0)
+-  runtime IC 1904 -> Item 168: Line (location: (source ID: 21, lines: 100..101, bytes: 3628..3645), hits: 1)
+-  runtime IC 1904 -> Item 169: Statement (location: (source ID: 21, lines: 100..101, bytes: 3628..3645), hits: 1)
+-  runtime IC 1956 -> Item 170: Statement (location: (source ID: 21, lines: 100..101, bytes: 3647..3683), hits: 0)
+-  runtime IC 1956 -> Item 171: Branch (branch: 11, path: 0) (location: (source ID: 21, lines: 100..101, bytes: 3647..3683), hits: 0)
+-  runtime IC 2006 -> Item 172: Line (location: (source ID: 21, lines: 102..103, bytes: 3702..3738), hits: 1)
+-  runtime IC 2006 -> Item 173: Statement (location: (source ID: 21, lines: 102..103, bytes: 3702..3738), hits: 1)
+-  runtime IC 2089 -> Item 174: Line (location: (source ID: 21, lines: 103..104, bytes: 3748..3768), hits: 1)
+-  runtime IC 2089 -> Item 175: Statement (location: (source ID: 21, lines: 103..104, bytes: 3748..3768), hits: 1)
+-  runtime IC 2176 -> Item 176: Line (location: (source ID: 21, lines: 104..105, bytes: 3778..3796), hits: 1)
+-  runtime IC 2176 -> Item 177: Statement (location: (source ID: 21, lines: 104..105, bytes: 3778..3796), hits: 1)
+-  runtime IC 2263 -> Item 178: Line (location: (source ID: 21, lines: 105..106, bytes: 3806..3828), hits: 1)
+-  runtime IC 2263 -> Item 179: Statement (location: (source ID: 21, lines: 105..106, bytes: 3806..3828), hits: 1)
+-  runtime IC 2345 -> Item 180: Line (location: (source ID: 21, lines: 107..108, bytes: 3847..3882), hits: 1)
+-  runtime IC 2345 -> Item 181: Statement (location: (source ID: 21, lines: 107..108, bytes: 3847..3882), hits: 1)
+-  runtime IC 395 -> Item 182: Line (location: (source ID: 21, lines: 112..126, bytes: 3937..4348), hits: 6)
+-  runtime IC 395 -> Item 183: Function "mint" (location: (source ID: 21, lines: 112..126, bytes: 3937..4348), hits: 6)
+-  runtime IC 3190 -> Item 184: Line (location: (source ID: 21, lines: 113..114, bytes: 4002..4021), hits: 6)
+-  runtime IC 3190 -> Item 185: Statement (location: (source ID: 21, lines: 113..114, bytes: 4002..4021), hits: 6)
+-  runtime IC 3273 -> Item 186: Statement (location: (source ID: 21, lines: 113..114, bytes: 4023..4040), hits: 1)
+-  runtime IC 3273 -> Item 187: Branch (branch: 12, path: 0) (location: (source ID: 21, lines: 113..114, bytes: 4023..4040), hits: 1)
+-  runtime IC 3323 -> Item 188: Line (location: (source ID: 21, lines: 114..115, bytes: 4054..4071), hits: 5)
+-  runtime IC 3323 -> Item 189: Statement (location: (source ID: 21, lines: 114..115, bytes: 4054..4071), hits: 5)
+-  runtime IC 3375 -> Item 190: Statement (location: (source ID: 21, lines: 114..115, bytes: 4073..4105), hits: 0)
+-  runtime IC 3375 -> Item 191: Branch (branch: 13, path: 0) (location: (source ID: 21, lines: 114..115, bytes: 4073..4105), hits: 0)
+-  runtime IC 3425 -> Item 192: Line (location: (source ID: 21, lines: 116..117, bytes: 4124..4140), hits: 5)
+-  runtime IC 3425 -> Item 193: Statement (location: (source ID: 21, lines: 116..117, bytes: 4124..4140), hits: 5)
+-  runtime IC 3449 -> Item 194: Line (location: (source ID: 21, lines: 117..118, bytes: 4150..4182), hits: 5)
+-  runtime IC 3449 -> Item 195: Statement (location: (source ID: 21, lines: 117..118, bytes: 4150..4182), hits: 5)
+-  runtime IC 3456 -> Item 196: Line (location: (source ID: 21, lines: 119..120, bytes: 4201..4219), hits: 5)
+-  runtime IC 3456 -> Item 197: Statement (location: (source ID: 21, lines: 119..120, bytes: 4201..4219), hits: 5)
+-  runtime IC 3543 -> Item 198: Line (location: (source ID: 21, lines: 120..121, bytes: 4229..4250), hits: 5)
+-  runtime IC 3543 -> Item 199: Statement (location: (source ID: 21, lines: 120..121, bytes: 4229..4250), hits: 5)
+-  runtime IC 3625 -> Item 200: Line (location: (source ID: 21, lines: 122..123, bytes: 4269..4308), hits: 5)
+-  runtime IC 3625 -> Item 201: Statement (location: (source ID: 21, lines: 122..123, bytes: 4269..4308), hits: 5)
+-  runtime IC 3717 -> Item 202: Line (location: (source ID: 21, lines: 124..125, bytes: 4327..4341), hits: 5)
+-  runtime IC 3717 -> Item 203: Statement (location: (source ID: 21, lines: 124..125, bytes: 4327..4341), hits: 5)
+-  runtime IC 319 -> Item 204: Line (location: (source ID: 21, lines: 127..138, bytes: 4354..4749), hits: 1)
+-  runtime IC 319 -> Item 205: Function "burn" (location: (source ID: 21, lines: 127..138, bytes: 4354..4749), hits: 1)
+-  runtime IC 2441 -> Item 206: Line (location: (source ID: 21, lines: 128..129, bytes: 4403..4438), hits: 1)
+-  runtime IC 2441 -> Item 207: Statement (location: (source ID: 21, lines: 128..129, bytes: 4403..4438), hits: 1)
+-  runtime IC 2497 -> Item 208: Line (location: (source ID: 21, lines: 129..130, bytes: 4452..4474), hits: 1)
+-  runtime IC 2497 -> Item 209: Statement (location: (source ID: 21, lines: 129..130, bytes: 4452..4474), hits: 1)
+-  runtime IC 2549 -> Item 210: Statement (location: (source ID: 21, lines: 129..130, bytes: 4476..4502), hits: 0)
+-  runtime IC 2549 -> Item 211: Branch (branch: 14, path: 0) (location: (source ID: 21, lines: 129..130, bytes: 4476..4502), hits: 0)
+-  runtime IC 2599 -> Item 212: Line (location: (source ID: 21, lines: 130..131, bytes: 4516..4538), hits: 1)
+-  runtime IC 2599 -> Item 213: Statement (location: (source ID: 21, lines: 130..131, bytes: 4516..4538), hits: 1)
+-  runtime IC 2650 -> Item 214: Statement (location: (source ID: 21, lines: 130..131, bytes: 4540..4557), hits: 0)
+-  runtime IC 2650 -> Item 215: Branch (branch: 15, path: 0) (location: (source ID: 21, lines: 130..131, bytes: 4540..4557), hits: 0)
+-  runtime IC 2700 -> Item 216: Line (location: (source ID: 21, lines: 132..133, bytes: 4576..4612), hits: 1)
+-  runtime IC 2700 -> Item 217: Statement (location: (source ID: 21, lines: 132..133, bytes: 4576..4612), hits: 1)
+-  runtime IC 2783 -> Item 218: Line (location: (source ID: 21, lines: 133..134, bytes: 4622..4645), hits: 1)
+-  runtime IC 2783 -> Item 219: Statement (location: (source ID: 21, lines: 133..134, bytes: 4622..4645), hits: 1)
+-  runtime IC 2924 -> Item 220: Line (location: (source ID: 21, lines: 136..137, bytes: 4697..4742), hits: 1)
+-  runtime IC 2924 -> Item 221: Statement (location: (source ID: 21, lines: 136..137, bytes: 4697..4742), hits: 1)
+-  runtime IC 4748 -> Item 222: Line (location: (source ID: 21, lines: 141..151, bytes: 4802..5178), hits: 1)
+-  runtime IC 4748 -> Item 223: Function "_isApprovedOrOwner" (location: (source ID: 21, lines: 141..151, bytes: 4802..5178), hits: 1)
+-  runtime IC 4751 -> Item 224: Line (location: (source ID: 21, lines: 142..143, bytes: 4903..4937), hits: 1)
+-  runtime IC 4751 -> Item 225: Statement (location: (source ID: 21, lines: 142..143, bytes: 4903..4937), hits: 1)
+-  runtime IC 4806 -> Item 226: Line (location: (source ID: 21, lines: 143..144, bytes: 4951..4973), hits: 1)
+-  runtime IC 4806 -> Item 227: Statement (location: (source ID: 21, lines: 143..144, bytes: 4951..4973), hits: 1)
+-  runtime IC 4858 -> Item 228: Statement (location: (source ID: 21, lines: 143..144, bytes: 4975..5001), hits: 0)
+-  runtime IC 4858 -> Item 229: Branch (branch: 16, path: 0) (location: (source ID: 21, lines: 143..144, bytes: 4975..5001), hits: 0)
+-  runtime IC 4908 -> Item 230: Line (location: (source ID: 21, lines: 145..150, bytes: 5020..5171), hits: 1)
+-  runtime IC 4908 -> Item 231: Statement (location: (source ID: 21, lines: 145..150, bytes: 5020..5171), hits: 1)
+-  runtime IC 5213 -> Item 232: Line (location: (source ID: 21, lines: 152..171, bytes: 5184..5703), hits: 0)
+-  runtime IC 5213 -> Item 233: Function "_toString" (location: (source ID: 21, lines: 152..171, bytes: 5184..5703), hits: 0)
+-  runtime IC 5216 -> Item 234: Line (location: (source ID: 21, lines: 153..154, bytes: 5270..5280), hits: 0)
+-  runtime IC 5216 -> Item 235: Statement (location: (source ID: 21, lines: 153..154, bytes: 5270..5280), hits: 0)
+-  runtime IC 5224 -> Item 236: Statement (location: (source ID: 21, lines: 153..154, bytes: 5282..5292), hits: 0)
+-  runtime IC 5224 -> Item 237: Branch (branch: 17, path: 0) (location: (source ID: 21, lines: 153..154, bytes: 5282..5292), hits: 0)
+-  runtime IC 5285 -> Item 238: Line (location: (source ID: 21, lines: 155..156, bytes: 5311..5331), hits: 0)
+-  runtime IC 5285 -> Item 239: Statement (location: (source ID: 21, lines: 155..156, bytes: 5311..5331), hits: 0)
+-  runtime IC 5290 -> Item 240: Line (location: (source ID: 21, lines: 156..157, bytes: 5341..5355), hits: 0)
+-  runtime IC 5290 -> Item 241: Statement (location: (source ID: 21, lines: 156..157, bytes: 5341..5355), hits: 0)
+-  runtime IC 5293 -> Item 242: Line (location: (source ID: 21, lines: 157..158, bytes: 5372..5381), hits: 0)
+-  runtime IC 5293 -> Item 243: Statement (location: (source ID: 21, lines: 157..158, bytes: 5372..5381), hits: 0)
+-  runtime IC 5301 -> Item 244: Line (location: (source ID: 21, lines: 158..159, bytes: 5397..5405), hits: 0)
+-  runtime IC 5301 -> Item 245: Statement (location: (source ID: 21, lines: 158..159, bytes: 5397..5405), hits: 0)
+-  runtime IC 5315 -> Item 246: Line (location: (source ID: 21, lines: 159..160, bytes: 5419..5429), hits: 0)
+-  runtime IC 5315 -> Item 247: Statement (location: (source ID: 21, lines: 159..160, bytes: 5419..5429), hits: 0)
+-  runtime IC 5335 -> Item 248: Line (location: (source ID: 21, lines: 162..163, bytes: 5458..5497), hits: 0)
+-  runtime IC 5335 -> Item 249: Statement (location: (source ID: 21, lines: 162..163, bytes: 5458..5497), hits: 0)
+-  runtime IC 5337 -> Item 250: Statement (location: (source ID: 21, lines: 162..163, bytes: 5480..5497), hits: 0)
+-  runtime IC 5417 -> Item 251: Line (location: (source ID: 21, lines: 163..164, bytes: 5514..5524), hits: 0)
+-  runtime IC 5417 -> Item 252: Statement (location: (source ID: 21, lines: 163..164, bytes: 5514..5524), hits: 0)
+-  runtime IC 5425 -> Item 253: Line (location: (source ID: 21, lines: 164..165, bytes: 5540..5551), hits: 0)
+-  runtime IC 5425 -> Item 254: Statement (location: (source ID: 21, lines: 164..165, bytes: 5540..5551), hits: 0)
+-  runtime IC 5440 -> Item 255: Line (location: (source ID: 21, lines: 165..166, bytes: 5565..5621), hits: 0)
+-  runtime IC 5440 -> Item 256: Statement (location: (source ID: 21, lines: 165..166, bytes: 5565..5621), hits: 0)
+-  runtime IC 5534 -> Item 257: Line (location: (source ID: 21, lines: 166..167, bytes: 5635..5646), hits: 0)
+-  runtime IC 5534 -> Item 258: Statement (location: (source ID: 21, lines: 166..167, bytes: 5635..5646), hits: 0)
+-  runtime IC 5554 -> Item 259: Line (location: (source ID: 21, lines: 169..170, bytes: 5675..5696), hits: 0)
+-  runtime IC 5554 -> Item 260: Statement (location: (source ID: 21, lines: 169..170, bytes: 5675..5696), hits: 0)
+
+Anchors for Contract "ERC20" (solc 0.8.13, source ID 20):
+- creation IC 5 -> Item 0: Line (location: (source ID: 20, lines: 17..22, bytes: 417..557), hits: 4)
+- creation IC 5 -> Item 1: Function "constructor" (location: (source ID: 20, lines: 17..22, bytes: 417..557), hits: 4)
+- creation IC 56 -> Item 2: Line (location: (source ID: 20, lines: 18..19, bytes: 483..497), hits: 4)
+- creation IC 56 -> Item 3: Statement (location: (source ID: 20, lines: 18..19, bytes: 483..497), hits: 4)
+- creation IC 81 -> Item 4: Line (location: (source ID: 20, lines: 19..20, bytes: 507..525), hits: 4)
+- creation IC 81 -> Item 5: Statement (location: (source ID: 20, lines: 19..20, bytes: 507..525), hits: 4)
+- creation IC 106 -> Item 6: Line (location: (source ID: 20, lines: 20..21, bytes: 535..550), hits: 4)
+- creation IC 106 -> Item 7: Statement (location: (source ID: 20, lines: 20..21, bytes: 535..550), hits: 4)
+-  runtime IC 571 -> Item 8: Line (location: (source ID: 20, lines: 23..31, bytes: 563..921), hits: 1)
+-  runtime IC 571 -> Item 9: Function "transfer" (location: (source ID: 20, lines: 23..31, bytes: 563..921), hits: 1)
+-  runtime IC 1572 -> Item 10: Line (location: (source ID: 20, lines: 24..25, bytes: 649..691), hits: 1)
+-  runtime IC 1572 -> Item 11: Statement (location: (source ID: 20, lines: 24..25, bytes: 649..691), hits: 1)
+-  runtime IC 1579 -> Item 12: Branch (branch: 0, path: 0) (location: (source ID: 20, lines: 24..25, bytes: 649..691), hits: 0)
+-  runtime IC 1637 -> Item 13: Branch (branch: 0, path: 1) (location: (source ID: 20, lines: 24..25, bytes: 649..691), hits: 1)
+-  runtime IC 1638 -> Item 14: Line (location: (source ID: 20, lines: 25..26, bytes: 701..761), hits: 1)
+-  runtime IC 1638 -> Item 15: Statement (location: (source ID: 20, lines: 25..26, bytes: 701..761), hits: 1)
+-  runtime IC 1690 -> Item 16: Branch (branch: 1, path: 0) (location: (source ID: 20, lines: 25..26, bytes: 701..761), hits: 0)
+-  runtime IC 1748 -> Item 17: Branch (branch: 1, path: 1) (location: (source ID: 20, lines: 25..26, bytes: 701..761), hits: 1)
+-  runtime IC 1749 -> Item 18: Line (location: (source ID: 20, lines: 26..27, bytes: 771..800), hits: 1)
+-  runtime IC 1749 -> Item 19: Statement (location: (source ID: 20, lines: 26..27, bytes: 771..800), hits: 1)
+-  runtime IC 1835 -> Item 20: Line (location: (source ID: 20, lines: 27..28, bytes: 810..840), hits: 1)
+-  runtime IC 1835 -> Item 21: Statement (location: (source ID: 20, lines: 27..28, bytes: 810..840), hits: 1)
+-  runtime IC 1921 -> Item 22: Line (location: (source ID: 20, lines: 28..29, bytes: 850..893), hits: 1)
+-  runtime IC 1921 -> Item 23: Statement (location: (source ID: 20, lines: 28..29, bytes: 850..893), hits: 1)
+-  runtime IC 2022 -> Item 24: Line (location: (source ID: 20, lines: 29..30, bytes: 903..914), hits: 1)
+-  runtime IC 2022 -> Item 25: Statement (location: (source ID: 20, lines: 29..30, bytes: 903..914), hits: 1)
+-  runtime IC 185 -> Item 26: Line (location: (source ID: 20, lines: 32..36, bytes: 927..1068), hits: 1)
+-  runtime IC 185 -> Item 27: Function "approve" (location: (source ID: 20, lines: 32..36, bytes: 927..1068), hits: 1)
+-  runtime IC 652 -> Item 28: Line (location: (source ID: 20, lines: 33..34, bytes: 1005..1040), hits: 1)
+-  runtime IC 652 -> Item 29: Statement (location: (source ID: 20, lines: 33..34, bytes: 1005..1040), hits: 1)
+-  runtime IC 781 -> Item 30: Line (location: (source ID: 20, lines: 34..35, bytes: 1050..1061), hits: 1)
+-  runtime IC 781 -> Item 31: Statement (location: (source ID: 20, lines: 34..35, bytes: 1050..1061), hits: 1)
+-  runtime IC 263 -> Item 32: Line (location: (source ID: 20, lines: 37..44, bytes: 1074..1343), hits: 1)
+-  runtime IC 263 -> Item 33: Function "transferFrom" (location: (source ID: 20, lines: 37..44, bytes: 1074..1343), hits: 1)
+-  runtime IC 935 -> Item 34: Line (location: (source ID: 20, lines: 38..39, bytes: 1170..1194), hits: 1)
+-  runtime IC 935 -> Item 35: Statement (location: (source ID: 20, lines: 38..39, bytes: 1170..1194), hits: 1)
+-  runtime IC 1021 -> Item 36: Line (location: (source ID: 20, lines: 39..40, bytes: 1204..1226), hits: 1)
+-  runtime IC 1021 -> Item 37: Statement (location: (source ID: 20, lines: 39..40, bytes: 1204..1226), hits: 1)
+-  runtime IC 1107 -> Item 38: Line (location: (source ID: 20, lines: 40..41, bytes: 1236..1274), hits: 1)
+-  runtime IC 1107 -> Item 39: Statement (location: (source ID: 20, lines: 40..41, bytes: 1236..1274), hits: 1)
+-  runtime IC 1254 -> Item 40: Line (location: (source ID: 20, lines: 41..42, bytes: 1284..1315), hits: 1)
+-  runtime IC 1254 -> Item 41: Statement (location: (source ID: 20, lines: 41..42, bytes: 1284..1315), hits: 1)
+-  runtime IC 1355 -> Item 42: Line (location: (source ID: 20, lines: 42..43, bytes: 1325..1336), hits: 1)
+-  runtime IC 1355 -> Item 43: Statement (location: (source ID: 20, lines: 42..43, bytes: 1325..1336), hits: 1)
+-  runtime IC 2173 -> Item 44: Line (location: (source ID: 20, lines: 45..50, bytes: 1349..1521), hits: 4)
+-  runtime IC 2173 -> Item 45: Function "_mint" (location: (source ID: 20, lines: 45..50, bytes: 1349..1521), hits: 4)
+-  runtime IC 2174 -> Item 46: Line (location: (source ID: 20, lines: 46..47, bytes: 1411..1433), hits: 4)
+-  runtime IC 2174 -> Item 47: Statement (location: (source ID: 20, lines: 46..47, bytes: 1411..1433), hits: 4)
+-  runtime IC 2260 -> Item 48: Line (location: (source ID: 20, lines: 47..48, bytes: 1443..1466), hits: 4)
+-  runtime IC 2260 -> Item 49: Statement (location: (source ID: 20, lines: 47..48, bytes: 1443..1466), hits: 4)
+-  runtime IC 2285 -> Item 50: Line (location: (source ID: 20, lines: 48..49, bytes: 1476..1514), hits: 4)
+-  runtime IC 2285 -> Item 51: Statement (location: (source ID: 20, lines: 48..49, bytes: 1476..1514), hits: 4)
+-  runtime IC 2390 -> Item 52: Line (location: (source ID: 20, lines: 51..55, bytes: 1528..1656), hits: 1)
+-  runtime IC 2390 -> Item 53: Function "_burn" (location: (source ID: 20, lines: 51..55, bytes: 1528..1656), hits: 1)
+-  runtime IC 2391 -> Item 54: Line (location: (source ID: 20, lines: 52..53, bytes: 1592..1616), hits: 1)
+-  runtime IC 2391 -> Item 55: Statement (location: (source ID: 20, lines: 52..53, bytes: 1592..1616), hits: 1)
+-  runtime IC 2477 -> Item 56: Line (location: (source ID: 20, lines: 53..54, bytes: 1626..1649), hits: 1)
+-  runtime IC 2477 -> Item 57: Statement (location: (source ID: 20, lines: 53..54, bytes: 1626..1649), hits: 1)
+-  runtime IC 359 -> Item 58: Line (location: (source ID: 20, lines: 57..60, bytes: 1663..1748), hits: 4)
+-  runtime IC 359 -> Item 59: Function "mint" (location: (source ID: 20, lines: 57..60, bytes: 1663..1748), hits: 4)
+-  runtime IC 1390 -> Item 60: Line (location: (source ID: 20, lines: 58..59, bytes: 1724..1741), hits: 4)
+-  runtime IC 1390 -> Item 61: Statement (location: (source ID: 20, lines: 58..59, bytes: 1724..1741), hits: 4)
+-  runtime IC 543 -> Item 62: Line (location: (source ID: 20, lines: 61..64, bytes: 1754..1843), hits: 1)
+-  runtime IC 543 -> Item 63: Function "burn" (location: (source ID: 20, lines: 61..64, bytes: 1754..1843), hits: 1)
+-  runtime IC 1556 -> Item 64: Line (location: (source ID: 20, lines: 62..63, bytes: 1817..1836), hits: 1)
+-  runtime IC 1556 -> Item 65: Statement (location: (source ID: 20, lines: 62..63, bytes: 1817..1836), hits: 1)
+-  runtime IC 465 -> Item 66: Line (location: (source ID: 20, lines: 65..68, bytes: 1849..1957), hits: 6)
+-  runtime IC 465 -> Item 67: Function "balanceOf" (location: (source ID: 20, lines: 65..68, bytes: 1849..1957), hits: 6)
+-  runtime IC 1449 -> Item 68: Line (location: (source ID: 20, lines: 66..67, bytes: 1926..1950), hits: 6)
+-  runtime IC 1449 -> Item 69: Statement (location: (source ID: 20, lines: 66..67, bytes: 1926..1950), hits: 6)
+
