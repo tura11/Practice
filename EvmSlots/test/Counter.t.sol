@@ -12,7 +12,7 @@ contract CounterTest is Test {
         slot.setValues(1, 2, bytes32(uint256(0xacacac)));
     }
 
-    function testSetValues() public {
+    function testSetValues() public { // change values of variables
         console.log("a value: ", slot.a());
         console.log("b value: ", slot.b());
         vm.store(address(slot), bytes32(uint256(0)), bytes32(uint256(3)));
@@ -26,7 +26,7 @@ contract CounterTest is Test {
     }
 
 
-    function testSlotVariables() public {
+    function testSlotVariables() public { // read values of variables
         bytes32 value1 = vm.load(address(slot), bytes32(uint256(0)));
       
         bytes32 value2 = vm.load(address(slot), bytes32(uint256(1)));
@@ -37,4 +37,6 @@ contract CounterTest is Test {
         console.log("value2: ", uint256(value2));
         console.log("value3: ", uint256(value3));
     }
+
+
 }
