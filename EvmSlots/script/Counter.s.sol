@@ -13,7 +13,6 @@ contract CounterScript is Script {
         vm.startBroadcast();
 
         slot = new SlotStorage();
-        slot.setValues(1, 2, bytes32(uint256(0xacacac)));
 
         vm.stopBroadcast();
 

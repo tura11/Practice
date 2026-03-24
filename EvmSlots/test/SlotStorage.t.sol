@@ -9,7 +9,6 @@ contract CounterTest is Test {
 
     function setUp() public {
         slot = new SlotStorage();
-        slot.setValues(1, 2, bytes32(uint256(0xacacac)));
     }
 
     function testSetValues() public { // change values of variables
