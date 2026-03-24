@@ -41,4 +41,47 @@ contract SlotStorageTestV2 is Test {
     }
 
 
+    function testStoreB() public {
+        bytes32 slot0 = vm.load(address(slot), bytes32(0));
+        uint256 s = uint256(slot0);
+        console.log("b value: ", slot.b());
+
+        uint256 mask = (uint256(type(uint64).max) << 128);
+        s = s & ~mask;
+        s = s | (uint256(uint64(5)) << 128); // we are set the vaule from 2 to 5;
+        vm.store(address(slot), bytes32(0), bytes32(s));
+        console.log("b value: ", slot.b());
+    
+    }
+
+
+    function testStoreC() public {
+        bytes32 slot0 = vm.load(address(slot), bytes32(0));
+        uint256 s = uint256(slot0);
+        console.log("c value: ", slot.c());
+
+
+        uint256 mask = (uint256(type(uint32).max) << 192);
+        s = s & ~mask;
+        s = s | (uint256(uint32(10)) << 192); // we are set the vaule from 3 to 10;
+        vm.store(address(slot), bytes32(0), bytes32(s));
+        console.log("c value: ", slot.c());
+    
+    }
+
+    function testStoreD() public {
+        bytes32 slot0 = vm.load(address(slot), bytes32(0));
+        uint256 s = uint256(slot0);
+        console.log("d value: ", slot.d());
+
+
+        uint256 mask = (uint256(type(uint32).max) << 224);
+        s = s & ~mask;
+        s = s | (uint256(uint32(15)) << 224); // we are set the vaule from 4 to 15;
+        vm.store(address(slot), bytes32(0), bytes32(s));
+        console.log("d value: ", slot.d());
+    
+    }
+
+
 }
