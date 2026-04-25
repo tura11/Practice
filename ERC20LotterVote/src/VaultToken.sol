@@ -49,5 +49,9 @@ contract VaultToken {
         return balances[owner];
     }
 
+    function getTotalSupply() public view returns (uint256){
+        return totalSupply;
+    }
+
 
 }
