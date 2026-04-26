@@ -2,9 +2,7 @@
 
 pragma solidity 0.8.31;
 
-
 contract Vault {
-
     error Vault__CannotDepositZero();
     error Vault__NoEnoughMoneyToWithdraw();
     error Vault__CannotWithdrawZero();
@@ -14,7 +12,6 @@ contract Vault {
 
     mapping(address => uint256) private balances;
 
-
     event Deposited(address depositor, uint256 amount);
     event Withdrawed(address withdrawer, uint256 amount);
 
@@ -22,10 +19,8 @@ contract Vault {
         owner = _owner;
     }
 
-
-
     function deposit(uint256 amount) external {
-        if(amount == 0){
+        if (amount == 0) {
             revert Vault__CannotDepositZero();
         }
 
@@ -35,13 +30,12 @@ contract Vault {
         emit Deposited(msg.sender, amount);
     }
 
-
     function withdraw(uint256 amount) external {
-        if(amount == 0){
+        if (amount == 0) {
             revert Vault__CannotWithdrawZero();
         }
 
-        if(balances[msg.sender] < amount) {
+        if (balances[msg.sender] < amount) {
             revert Vault__NoEnoughMoneyToWithdraw();
         }
 
@@ -50,4 +44,4 @@ contract Vault {
 
         emit Withdrawed(msg.sender, amount);
     }
-} 
+}
