@@ -17,8 +17,8 @@ contract VaultToken {
     mapping(address => uint256) private balances;
     mapping(address => mapping(address => uint256)) private allowances;
 
-    event Minted(owner, amount);
-    event Burned(owner, amount);
+    event Minted(address indexed owner, uint256 amount);
+    event Burned(address indexed owner, uint256 amount);
 
     constructor(string memory _name, string memory _symbol, uint256 _initialSupply) {
         name = _name;
@@ -35,11 +35,11 @@ contract VaultToken {
 
     function burn(uint256 amount) external {
         balances[msg.sender] -= amount;
-        totalSupply -= asmount;
+        totalSupply -= amount;
         emit Burned(msg.sender, amount);
     }
 
-    function allowance(address owner, address spender) public view returns(uint256) {
+    function allowance(address owner, address spender) public  returns(uint256) {
         if (owner == address(0)){
             revert VaultToken__AddressZero(owner);
         }
@@ -56,7 +56,7 @@ contract VaultToken {
     }
 
 
-    function approve(address spender, uint256 value) public view returns(bool){
+    function approve(address spender, uint256 value) public returns(bool){
         if(spender == address(0)){
             revert VaultToken__AddressZero(spender);
         }
@@ -65,12 +65,20 @@ contract VaultToken {
     }
 
 
-    function transfer(address to, uint256 amount) public view returns(bool){
+    function transfer(address to, uint256 amount) public  returns(bool){
         balances[msg.sender] -= amount;
         balances[to] += amount;
 
-        (bool success,) = payable(to).call{value: amount}("");
-        return success;
+        return true;
+    }
+
+    function transferFrom(address from, address to, uint256 amount) public  returns(bool){
+        balances[from] -= amount;
+        balances[to] += amount;
+        allowances[from][to] -= amount;
+        
+        return true;
+
     }
 
     function getName() public view returns (string memory) {
@@ -93,5 +101,4 @@ contract VaultToken {
         return totalSupply;
     }
 }
-    // function transfer(address _to, uint256 _value) public returns (bool success)
-    // function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)
+
