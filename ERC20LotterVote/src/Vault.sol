@@ -2,6 +2,8 @@
 
 pragma solidity 0.8.31;
 
+import {Token} from "./Token.sol";
+
 contract Vault {
     error Vault__CannotDepositZero();
     error Vault__NoEnoughMoneyToWithdraw();
@@ -43,5 +45,10 @@ contract Vault {
         totalSupply -= amount;
 
         emit Withdrawed(msg.sender, amount);
+    }
+
+
+    function getUserBalance(address user) external view returns(uint256){
+        return balances[user];
     }
 }
