@@ -29,6 +29,8 @@ contract Lottery {
         isEntered[player] = true;
     }
 
+    //todo vrf chanilik implenetanion
+
 
 
 
