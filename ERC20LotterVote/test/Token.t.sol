@@ -2,6 +2,7 @@
 
 pragma solidity 0.8.31;
 
+import {Token} from "../src/Token.sol";
 
 contract Token {
     string public constant symbol = "TOK";
