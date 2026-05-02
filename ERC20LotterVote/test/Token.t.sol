@@ -5,6 +5,11 @@ pragma solidity 0.8.31;
 import {Token} from "../src/Token.sol";
 
 contract Token {
-    string public constant symbol = "TOK";
-    uint8 public constant decimals = 18;
+    
+    Token token;
+
+
+    function setUp() public {
+        token = new Token("Token", "TOK", 1000e18);
+    }
 }
