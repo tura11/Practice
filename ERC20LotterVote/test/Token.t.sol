@@ -12,4 +12,9 @@ contract Token {
     function setUp() public {
         token = new Token("Token", "TOK", 1000e18);
     }
+
+
+    function testMint() public {
+        
+    }
 }
