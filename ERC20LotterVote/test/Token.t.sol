@@ -17,4 +17,7 @@ contract Token {
     function testMint() public {
         
     }
+
+
+    //todo 100% coverage
 }
