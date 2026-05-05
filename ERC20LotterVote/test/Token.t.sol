@@ -7,7 +7,7 @@ import {Token} from "../src/Token.sol";
 contract Token {
     
     Token token;
-
+    address owner;
 
     function setUp() public {
         token = new Token("Token", "TOK", 1000e18);
