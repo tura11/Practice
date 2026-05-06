@@ -11,11 +11,14 @@ contract Token {
 
     function setUp() public {
         token = new Token("Token", "TOK", 1000e18);
+        owner = address(this);
     }
 
 
     function testMint() public {
-        
+        vm.prank(owner);
+        token.mint(1000e18);
+        assert(token.balanceOf(owner) == 1000e18);
     }
 
 
