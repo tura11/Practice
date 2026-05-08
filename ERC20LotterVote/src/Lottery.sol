@@ -14,6 +14,9 @@ contract Lottery {
     error Lottery__PlayerAlreadyEntered();
     error Lottery__EntryFeeToLow();
 
+    struct requestStatus {
+
+    }
 
     uint256 public constant ENTRY_FEE = 10e18; // 10 tokens
     address[] private players;
