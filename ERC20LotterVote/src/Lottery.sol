@@ -15,7 +15,9 @@ contract Lottery {
     error Lottery__EntryFeeToLow();
 
     struct requestStatus {
-
+        bool fullfilled;
+        bool exist;
+        uint256[] randomWords;
     }
 
     uint256 public constant ENTRY_FEE = 10e18; // 10 tokens
