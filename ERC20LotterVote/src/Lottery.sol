@@ -41,7 +41,7 @@ contract Lottery {
     //todo vrf chanilik implenetanion
 
 
-
+    function pickRandomWinner()
 
 
 }
