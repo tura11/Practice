@@ -23,6 +23,7 @@ contract Lottery {
     uint256 public constant ENTRY_FEE = 10e18; // 10 tokens
     address[] private players;
     mapping(address => bool) public isEntered;
+    mapping(uint256 => RequestStatus) public s_requests;
 
     function enterLottery(address player, uint256 enterFee) public {
         if(player == address(0)){
