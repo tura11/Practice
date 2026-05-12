@@ -19,6 +19,10 @@ contract Lottery {
         bool exist;
         uint256[] randomWords;
     }
+    VRFCoordinatorV2Interface COORDINATOR;
+    uint64 s_subscriptionId;
+    uint256[] public requestsIds;
+    uint256 public lastRequestId;
 
     uint256 public constant ENTRY_FEE = 10e18; // 10 tokens
     address[] private players;
