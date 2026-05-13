@@ -21,6 +21,13 @@ contract Token {
         assert(token.balanceOf(owner) == 1000e18);
     }
 
+    function testBurn() public {
+        vm.prank(owner);
+        token.mint(1000e18);
+        token.burn(500e18);
+        assert(token.balanceOf(owner) == 500);
+    }
+
 
     //todo 100% coverage
 }
