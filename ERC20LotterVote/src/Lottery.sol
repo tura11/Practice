@@ -23,6 +23,8 @@ contract Lottery {
     uint64 s_subscriptionId;
     uint256[] public requestsIds;
     uint256 public lastRequestId;
+    bytes32 immutable keyHash;
+    address public immutable linkToken;
 
     uint256 public constant ENTRY_FEE = 10e18; // 10 tokens
     address[] private players;
