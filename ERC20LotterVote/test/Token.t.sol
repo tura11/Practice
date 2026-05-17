@@ -5,7 +5,6 @@ pragma solidity 0.8.31;
 import {Token} from "../src/Token.sol";
 
 contract Token {
-    
     Token token;
     address owner;
 
@@ -13,7 +12,6 @@ contract Token {
         token = new Token("Token", "TOK", 1000e18);
         owner = address(this);
     }
-
 
     function testMint() public {
         vm.prank(owner);
@@ -27,7 +25,6 @@ contract Token {
         token.burn(500e18);
         assert(token.balanceOf(owner) == 500);
     }
-
 
     //todo 100% coverage
 }

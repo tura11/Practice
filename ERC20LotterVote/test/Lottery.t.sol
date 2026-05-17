@@ -2,7 +2,7 @@
 
 pragma solidity 0.8.31;
 
-
 contract Lottery {
     // TODO
-}
+
+    }

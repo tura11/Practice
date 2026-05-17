@@ -47,8 +47,7 @@ contract Vault {
         emit Withdrawed(msg.sender, amount);
     }
 
-
-    function getUserBalance(address user) external view returns(uint256){
+    function getUserBalance(address user) external view returns (uint256) {
         return balances[user];
     }
 }

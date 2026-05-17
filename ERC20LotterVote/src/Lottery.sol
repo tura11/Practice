@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: MIT
 
-
 pragma solidity 0.8.31;
 
 import "https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";
@@ -32,13 +31,13 @@ contract Lottery {
     mapping(uint256 => RequestStatus) public s_requests;
 
     function enterLottery(address player, uint256 enterFee) public {
-        if(player == address(0)){
+        if (player == address(0)) {
             revert Lottery__InvalidAddress();
         }
-        if(enterFee < ENTRY_FEE){
+        if (enterFee < ENTRY_FEE) {
             revert Lottery__EntryFeeToLow();
         }
-        if(isEntered[player]){
+        if (isEntered[player]) {
             revert Lottery__PlayerAlreadyEntered();
         }
         players.push(player);
@@ -47,10 +46,5 @@ contract Lottery {
 
     //todo vrf chanilik implenetanion
 
-
-    function pickRandomWinner(){
-        
-    }
-
-
+    function pickRandomWinner() {}
 }

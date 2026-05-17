@@ -71,8 +71,19 @@ contract Token {
         return true;
     }
 
-    function balanceOf(address owner) public view returns (uint256) { return balances[owner]; }
-    function getName() public view returns (string memory) { return name; }
-    function getSymbol() public view returns (string memory) { return symbol; }
-    function getDecimals() public view returns (uint8) { return decimals; }
+    function balanceOf(address owner) public view returns (uint256) {
+        return balances[owner];
+    }
+
+    function getName() public view returns (string memory) {
+        return name;
+    }
+
+    function getSymbol() public view returns (string memory) {
+        return symbol;
+    }
+
+    function getDecimals() public view returns (uint8) {
+        return decimals;
+    }
 }
