@@ -26,5 +26,12 @@ contract Token {
         assert(token.balanceOf(owner) == 500);
     }
 
+    function testTransfer() public {
+        vm.prank(owner);
+        token.mint(1000e18);
+        token.transfer(address(1), 500e18);
+        assert(token.balanceOf(address(1)) == 500e18);
+    }
+
     //todo 100% coverage
 }
