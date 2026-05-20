@@ -18,7 +18,7 @@ contract Lottery {
         bool exist;
         uint256[] randomWords;
     }
-    VRFCoordinatorV2Interface COORDINATOR;
+    VRFCoordinatorV2Interface COORDINATOR; //vrf coordinator
     uint64 s_subscriptionId;
     uint256[] public requestsIds;
     uint256 public lastRequestId;
