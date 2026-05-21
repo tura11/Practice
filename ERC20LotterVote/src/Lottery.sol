@@ -12,6 +12,18 @@ contract Lottery {
     error Lottery__EntryFeeToLow();
 
 
+    // chainlik vrf varaibles
+
+
+    uint256 private immutable i_subscriptionId;
+    bytes32 private immutable i_gasLane;
+    uint32 private immutable i_callbackGasLimit;
+    uint16 private constant REQUEST_CONFIRMATIONS = 3;
+    uint32 private constant NUM_WORDS = 1;
+
+    // lottery variables
+
+
     uint256 public constant ENTRY_FEE = 10e18; // 10 tokens
     address[] private players;
     mapping(address => bool) public isEntered;
