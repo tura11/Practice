@@ -3,8 +3,9 @@
 pragma solidity 0.8.31;
 
 import {Token} from "../src/Token.sol";
+import {Test} from "forge-std/Test.sol";
 
-contract Token {
+contract TestToken is Test{
     Token token;
     address owner;
 
