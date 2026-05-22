@@ -29,6 +29,10 @@ contract Lottery {
     mapping(address => bool) public isEntered;
 
 
+    constructor(uint256 subscriptionId, bytes32 gasLane, uint32 callbackGasLimit, address vrfCoordinatorV2) {
+        
+    }
+
     function enterLottery(address player, uint256 enterFee) public {
         if (player == address(0)) {
             revert Lottery__InvalidAddress();
