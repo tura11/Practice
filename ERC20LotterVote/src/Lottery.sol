@@ -30,6 +30,9 @@ contract Lottery {
 
 
     constructor(uint256 subscriptionId, bytes32 gasLane, uint32 callbackGasLimit, address vrfCoordinatorV2) {
+        i_subscriptionId = subscriptionId;
+        i_gasLane = gasLane;
+        i_callbackGasLimit = callbackGasLimit;
         
     }
 
