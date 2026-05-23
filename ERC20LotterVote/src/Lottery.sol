@@ -11,10 +11,12 @@ contract Lottery {
     error Lottery__PlayerAlreadyEntered();
     error Lottery__EntryFeeToLow();
 
-
+    enum LotteryState {
+        Open,
+        Pending,
+        Closed
+    }
     // chainlik vrf varaibles
-
-
     uint256 private immutable i_subscriptionId;
     bytes32 private immutable i_gasLane;
     uint32 private immutable i_callbackGasLimit;
@@ -29,7 +31,7 @@ contract Lottery {
     mapping(address => bool) public isEntered;
 
 
-    constructor(uint256 subscriptionId, bytes32 gasLane, uint32 callbackGasLimit, address vrfCoordinatorV2) {
+    constructor(uint256 subscriptionId, bytes32 gasLane, uint32 callbackGasLimit, address vrfCoordinatorV2) VRFConsumerBaseV2Plus(vrfCoordinatorV2) {
         i_subscriptionId = subscriptionId;
         i_gasLane = gasLane;
         i_callbackGasLimit = callbackGasLimit;
