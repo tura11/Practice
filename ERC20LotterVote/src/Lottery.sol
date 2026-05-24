@@ -29,6 +29,7 @@ contract Lottery {
     uint256 public constant ENTRY_FEE = 10e18; // 10 tokens
     address[] private players;
     mapping(address => bool) public isEntered;
+    LotteryState private state;
 
 
     constructor(uint256 subscriptionId, bytes32 gasLane, uint32 callbackGasLimit, address vrfCoordinatorV2) VRFConsumerBaseV2Plus(vrfCoordinatorV2) {
@@ -54,5 +55,9 @@ contract Lottery {
 
     //todo vrf chanilik implenetanion
 
-    function pickRandomWinner() public {}
+    function cheecUpKeep(bytes memory) public view override returns (bool upkeepNeeded, bytes memory) {
+        bool isOpen = LotteryState.Open == state;
+        
+
+    }
 }
