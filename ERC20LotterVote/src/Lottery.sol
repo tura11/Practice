@@ -55,7 +55,7 @@ contract Lottery {
 
     //todo vrf chanilik implenetanion
 
-    function cheecUpKeep(bytes memory) public view override returns (bool upkeepNeeded, bytes memory) {
+    function checkUpKeep(bytes memory) public view override returns (bool upkeepNeeded, bytes memory) {
         bool isOpen = LotteryState.Open == state;
         
 
