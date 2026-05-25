@@ -30,12 +30,15 @@ contract Lottery {
     address[] private players;
     mapping(address => bool) public isEntered;
     LotteryState private state;
+    uint256 private immutable i_interval;
 
 
-    constructor(uint256 subscriptionId, bytes32 gasLane, uint32 callbackGasLimit, address vrfCoordinatorV2) VRFConsumerBaseV2Plus(vrfCoordinatorV2) {
+    constructor(uint256 subscriptionId, bytes32 gasLane, uint32 callbackGasLimit, address vrfCoordinatorV2, uint256 interval) VRFConsumerBaseV2Plus(vrfCoordinatorV2) {
         i_subscriptionId = subscriptionId;
         i_gasLane = gasLane;
         i_callbackGasLimit = callbackGasLimit;
+        i_interval = interval;
+
         
     }
 
@@ -57,6 +60,7 @@ contract Lottery {
 
     function checkUpKeep(bytes memory) public view override returns (bool upkeepNeeded, bytes memory) {
         bool isOpen = LotteryState.Open == state;
+        bool timePassed = (
         
 
     }
