@@ -31,6 +31,7 @@ contract Lottery {
     mapping(address => bool) public isEntered;
     LotteryState private state;
     uint256 private immutable i_interval;
+    uint256 private s_lastTimeStamp;
 
 
     constructor(uint256 subscriptionId, bytes32 gasLane, uint32 callbackGasLimit, address vrfCoordinatorV2, uint256 interval) VRFConsumerBaseV2Plus(vrfCoordinatorV2) {
@@ -60,8 +61,11 @@ contract Lottery {
 
     function checkUpKeep(bytes memory) public view override returns (bool upkeepNeeded, bytes memory) {
         bool isOpen = LotteryState.Open == state;
-        bool timePassed = (
-        
+        bool timePassed = ((block.timestamp - s_lastTimeStamp) > i_interval);
+        bool hasPlayers = players.length > 0;
+        bool hasBalance = address(this).balance > 0;
+        upkeepNeeded = (isOpen && timePassed && hasPlayers && hasBalance);
+        return (upkeepNeeded, "0x0");        
 
     }
 }
