@@ -4,7 +4,9 @@ pragma solidity 0.8.31;
 
 import {VRFConsumerBaseV2Plus} from "@chainlink/contracts/src/v0.8/vrf/dev/VRFConsumerBaseV2Plus.sol";
 import {VRFV2PlusClient} from "@chainlink/contracts/src/v0.8/vrf/dev/libraries/VRFV2PlusClient.sol";
-import {AutomationCompatibleInterface} from "@chainlink/contracts/src/v0.8/automation/interfaces/AutomationCompatibleInterface.sol";
+import {
+    AutomationCompatibleInterface
+} from "@chainlink/contracts/src/v0.8/automation/interfaces/AutomationCompatibleInterface.sol";
 
 contract Lottery {
     error Lottery__InvalidAddress();
@@ -25,7 +27,6 @@ contract Lottery {
 
     // lottery variables
 
-
     uint256 public constant ENTRY_FEE = 10e18; // 10 tokens
     address[] private players;
     mapping(address => bool) public isEntered;
@@ -33,14 +34,17 @@ contract Lottery {
     uint256 private immutable i_interval;
     uint256 private s_lastTimeStamp;
 
-
-    constructor(uint256 subscriptionId, bytes32 gasLane, uint32 callbackGasLimit, address vrfCoordinatorV2, uint256 interval) VRFConsumerBaseV2Plus(vrfCoordinatorV2) {
+    constructor(
+        uint256 subscriptionId,
+        bytes32 gasLane,
+        uint32 callbackGasLimit,
+        address vrfCoordinatorV2,
+        uint256 interval
+    ) VRFConsumerBaseV2Plus(vrfCoordinatorV2) {
         i_subscriptionId = subscriptionId;
         i_gasLane = gasLane;
         i_callbackGasLimit = callbackGasLimit;
         i_interval = interval;
-
-        
     }
 
     function enterLottery(address player, uint256 enterFee) public {
@@ -65,7 +69,6 @@ contract Lottery {
         bool hasPlayers = players.length > 0;
         bool hasBalance = address(this).balance > 0;
         upkeepNeeded = (isOpen && timePassed && hasPlayers && hasBalance);
-        return (upkeepNeeded, "0x0");        
-
+        return (upkeepNeeded, "0x0");
     }
 }

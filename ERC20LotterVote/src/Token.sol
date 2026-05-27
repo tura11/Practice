@@ -72,15 +72,18 @@ contract Token {
     }
 
     function balanceOf(address owner) public view returns (uint256) {
-         return balances[owner]; 
+        return balances[owner];
     }
+
     function getName() public view returns (string memory) {
-         return name; 
+        return name;
     }
+
     function getSymbol() public view returns (string memory) {
-         return symbol;
+        return symbol;
     }
+
     function getDecimals() public view returns (uint8) {
-         return decimals; 
+        return decimals;
     }
 }
