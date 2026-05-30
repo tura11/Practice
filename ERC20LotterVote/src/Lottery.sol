@@ -71,4 +71,7 @@ contract Lottery {
         upkeepNeeded = (isOpen && timePassed && hasPlayers && hasBalance);
         return (upkeepNeeded, "0x0");
     }
+
+
+    function performUpKeep()
 }
