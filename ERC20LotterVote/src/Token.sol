@@ -12,7 +12,7 @@ contract Token {
     uint256 public totalSupply;
 
     mapping(address => uint256) private balances;
-    mapping(address => mapping(address => uint256)) private allowances;
+    mapping(address => mapping(address => uint256)) private allowances; //allowances[owner][spender]
 
     event Transfer(address indexed from, address indexed to, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
